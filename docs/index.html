@@ -1,179 +1,634 @@
-\<!DOCTYPE html>
 
-\<html lang="en">
-\<head>
-&#x20; \<meta charset="UTF-8">
-&#x20; \<meta name="viewport" content="width=device-width, initial-scale=1.0">
-&#x20; \<meta name="theme-color" content="#F7F3EF">
-&#x20; \<meta name="description" content="Explore fragrance accords through data, visual analytics, and interactive fragrance intelligence.">
-&#x20; \<title>Fragrance Intelligence | Interactive Analytics\</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F3EF">
+  <meta name="description" content="Explore fragrance accords through data, visual analytics, and interactive fragrance intelligence.">
+  <title>Fragrance Intelligence | Interactive Analytics</title>
 
-&#x20; \<link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-&#x20; \<link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-&#x20; \<link href="[https://fonts.googleapis.com/css2?family=DM+Sans\:wght@400;500;600;700&family=Playfair+Display\:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=DM+Sans\:wght@400;500;600;700\&family=Playfair+Display\:wght@400;500;600;700\&display=swap)" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-&#x20; \<style>     \:root {       --ivory: #F7F3EF;       --paper: #FFFCF9;       --bordeaux: #674653;       --wine: #4D303D;       --rose: #D4B5BF;       --mauve: #9A6A78;       --ink: #352B30;       --muted: #786D71;       --line: #E8DDE0;       --shadow: 0 18px 50px rgba(77, 48, 61, 0.08);     }      \* {       box-sizing: border-box;     }      html {       scroll-behavior: smooth;     }      body {       margin: 0;       background: var(--ivory);       color: var(--ink);       font-family: "DM Sans", sans-serif;       line-height: 1.7;     }      a {       color: inherit;     }      .page {       width: min(1120px, calc(100% - 40px));       margin: 0 auto;     }      .topbar {       display: flex;       justify-content: space-between;       align-items: center;       gap: 20px;       padding: 26px 0;       border-bottom: 1px solid var(--line);     }      .brand {       color: var(--bordeaux);       font-family: "Playfair Display", serif;       font-size: 21px;       letter-spacing: 0.02em;       text-decoration: none;     }      .nav {       display: flex;       flex-wrap: wrap;       gap: 24px;     }      .nav a {       color: var(--muted);       font-size: 13px;       text-decoration: none;     }      .nav a\:hover {       color: var(--bordeaux);     }      .hero {       position: relative;       overflow: hidden;       padding: 100px 0 88px;     }      .hero::after {       content: "";       position: absolute;       top: 35px;       right: 3%;       width: 280px;       height: 280px;       border: 1px solid rgba(154, 106, 120, 0.17);       border-radius: 50%;       box-shadow:         0 0 0 28px rgba(154, 106, 120, 0.035),         0 0 0 56px rgba(154, 106, 120, 0.025);       pointer-events: none;     }      .eyebrow {       margin: 0 0 20px;       color: var(--mauve);       font-size: 11px;       font-weight: 700;       letter-spacing: 0.2em;       text-transform: uppercase;     } e     h1, h2, h3 {       font-family: "Playfair Display", serif;       font-weight: 500;       line-height: 1.2;     }      h1 {       position: relative;       z-index: 1;       max-width: 740px;       margin: 0;       color: var(--wine);       font-size: clamp(44px, 7vw, 76px);       letter-spacing: -0.035em;     }      h1 em {       color: var(--mauve);       font-weight: 400;     }      .hero-copy {       max-width: 600px;       margin: 26px 0 30px;       color: var(--muted);       font-size: 16px;     }      .button {       display: inline-flex;       align-items: center;       justify-content: center;       min-height: 48px;       padding: 12px 22px;       border: 1px solid var(--bordeaux);       border-radius: 3px;       background: var(--bordeaux);       color: white;       font-size: 13px;       font-weight: 600;       text-decoration: none;       transition: background 0.2s, transform 0.2s;     }      .button\:hover {       transform: translateY(-2px);       background: var(--wine);     }      .button.secondary {       background: transparent;       color: var(--bordeaux);     }      .button.secondary\:hover {       background: #F0E5E8;     }      .section {       padding: 66px 0;       border-top: 1px solid var(--line);     }      .section-heading {       display: flex;       justify-content: space-between;       align-items: end;       gap: 24px;       margin-botteom: 30px;     }      .section-heading h2 {       margin: 0;       color: var(--wine);       font-size: clamp(30px, 4vw, 42px);     }      .section-heading p {       max-width: 420px;       margin: 0;       color: var(--muted);       font-size: 13px;     }      .chart-card {       overflow: hidden;       border: 1px solid var(--line);       border-radius: 8px;       background: var(--paper);       box-shadow: var(--shadow);     }      .chart-card-top {       display: flex;       justify-content: space-between;       align-items: center;       gap: 20px;       padding: 25px 28px;       border-bottom: 1px solid var(--line);     }      .chart-card-top h3 {       margin: 0 0 5px;       color: var(--bordeaux);       font-size: 25px;     }      .chart-card-top p {       margin: 0;       color: var(--muted);       font-size: 12px;     }      .status {       flex-shrink: 0;       padding: 6px 10px;       border: 1px solid #E2CFD5;       border-radius: 20px;       color: var(--bordeaux);       font-size: 10px;       font-weight: 700;       letter-spacing: 0.08em;       text-transform: uppercase;     }      .chart-preview {       padding: 24px;       background:         radial-gradient(ellipse at 50% 0%, #F0E4E7 0%, transparent 65%),         var(--paper);     }      .preview-art {       display: grid;       min-height: 235px;       place-items: center;       padding: 25px;       border: 1px solid #E9DDE1;       border-radius: 5px;       background: rgba(255, 252, 249, 0.8);       text-align: center;     }      .preview-art svg {       display: block;       width: min(100%, 560px);       height: auto;     }      .preview-caption {       margin: 12px 0 0;       color: var(--muted);       font-size: 11px;       text-align: center;     }      .chart-actions {       display: flex;       flex-wrap: wrap;       gap: 12px;       padding: 0 28px 28px;     }      .note {       margin-top: 18px;       color: var(--muted);       font-size: 12px;     }      .about-grid {       display: grid;       grid-template-columns: repeat(3, 1fr);       gap: 18px;     }      .about-card {       padding: 24px;       border: 1px solid var(--line);       border-radius: 6px;       background: rgba(255, 252, 249, 0.7);     }      .about-card .number {       color: var(--mauve);       font-family: "Playfair Display", serif;       font-size: 30px;     }      .about-card h3 {       margin: 8px 0;       color: var(--bordeaux);       font-size: 21px;     }      .about-card p {       margin: 0;       color: var(--muted);       font-size: 13px;     }      .footer {       display: flex;       justify-content: space-between;       gap: 20px;       padding: 28px 0 36px;       border-top: 1px solid var(--line);       color: var(--muted);       font-size: 11px;     }      .footer p {       margin: 0;     }      @media (max-width: 700px) {       .page {         width: min(100% - 28px, 1120px);       }        .topbar {         align-items: flex-start;         flex-direction: column;         padding: 20px 0;       }        .nav {         gap: 16px;       }        .hero {         padding: 70px 0 60px;       }        .hero::after {         top: 25px;         right: -155px;         width: 240px;         height: 240px;       }        .section {         padding: 48px 0;       }        .section-heading {         align-items: flex-start;         flex-direction: column;       }        .chart-card-top {         align-items: flex-start;         flex-direction: column;         padding: 22px;       }        .chart-preview {         padding: 12px;       }        .chart-actions {         padding: 0 18px 22px;       }        .about-grid {         grid-template-columns: 1fr;       }        .footer {         flex-direction: column;       }     }      @media (prefers-reduced-motion: reduce) {       html {         scroll-behavior: auto;       }        \*, \*::before, \*::after {         transition-duration: 0.01ms !important;       }     }   \</style>
+  <style>
+    :root {
+      --ivory: #F7F3EF;
+      --paper: #FFFCF9;
+      --bordeaux: #674653;
+      --wine: #4D303D;
+      --rose: #D4B5BF;
+      --mauve: #9A6A78;
+      --ink: #352B30;
+      --muted: #786D71;
+      --line: #E8DDE0;
+      --shadow: 0 18px 50px rgba(77, 48, 61, 0.08);
+    }
 
-\</head>
+    * {
+      box-sizing: border-box;
+    }
 
-\<body>
-&#x20; \<div class="page">
+    html {
+      scroll-behavior: smooth;
+    }
 
-```
-<header class="topbar">
-  <a class="brand" href="./index.html">Fragrance Intelligence</a>
-  <nav class="nav" aria-label="Main navigation">
-    <a href="#explore">Explore</a>
-    <a href="#approach">The Approach</a>
-    <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-  </nav>
-</header>
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
 
-<main>
-  <section class="hero">
-    <p class="eyebrow">Data · Discovery · The Art of Fragrance</p>
-    <h1>Discover the hidden structure of <em>scent.</em></h1>
-    <p class="hero-copy">
-      An exploration of fragrance through data analytics. Discover how
-      dominant accords connect to supporting scent families, revealing
-      patterns in the language of perfumery.
-    </p>
-    <a class="button" href="#explore">Explore the visualizations &nbsp; ↓</a>
-  </section>
+    a {
+      color: inherit;
+    }
 
-  <section class="section" id="explore">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Interactive collection · 01</p>
-        <h2>Accord hierarchies</h2>
-      </div>
-      <p>
-        Explore the relationships between dominant accords and their
-        secondary and tertiary accords.
-      </p>
-    </div>
+    .page {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-    <article class="chart-card">
-      <div class="chart-card-top">
-        <div>
-          <h3>Vanilla</h3>
-          <p>A closer look at the supporting accord landscape.</p>
-        </div>
-        <span class="status">Interactive analysis</span>
-      </div>
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
 
-      <div class="chart-preview">
-        <div class="preview-art">
-          <svg viewBox="0 0 560 205" role="img" aria-label="Illustrative vanilla accord hierarchy preview">
-            <defs>
-              <linearGradient id="vanilla" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#80606B"/>
-                <stop offset="100%" stop-color="#4D303D"/>
-              </linearGradient>
-            </defs>
+    .brand {
+      color: var(--bordeaux);
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
 
-            <g fill="none" stroke="#C8A8B3" stroke-width="1.5">
-              <path d="M280 52 V73 H100 V91"/>
-              <path d="M280 73 H280 V91"/>
-              <path d="M280 73 H460 V91"/>
-              <path d="M100 126 V145"/>
-              <path d="M280 126 V145"/>
-              <path d="M460 126 V145"/>
-            </g>
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
 
-            <rect x="205" y="13" width="150" height="39" rx="5" fill="url(#vanilla)"/>
-            <text x="280" y="37" fill="#FFFFFF" font-size="15" text-anchor="middle" font-family="DM Sans, sans-serif">Vanilla</text>
+    .nav a {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+    }
 
-            <rect x="35" y="91" width="130" height="35" rx="4" fill="#E7D3D8" stroke="#D4B5BF"/>
-            <rect x="215" y="91" width="130" height="35" rx="4" fill="#E7D3D8" stroke="#D4B5BF"/>
-            <rect x="395" y="91" width="130" height="35" rx="4" fill="#E7D3D8" stroke="#D4B5BF"/>
+    .nav a:hover {
+      color: var(--bordeaux);
+    }
 
-            <g fill="#674653" font-size="13" text-anchor="middle" font-family="DM Sans, sans-serif">
-              <text x="100" y="113">Sweet</text>
-              <text x="280" y="113">Amber</text>
-              <text x="460" y="113">Powdery</text>
-            </g>
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 88px;
+    }
 
-            <g fill="#FFFCF9" stroke="#D4B5BF">
-              <rect x="45" y="145" width="110" height="30" rx="4"/>
-              <rect x="225" y="145" width="110" height="30" rx="4"/>
-              <rect x="405" y="145" width="110" height="30" rx="4"/>
-            </g>
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 35px;
+      right: 3%;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(154, 106, 120, 0.17);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 28px rgba(154, 106, 120, 0.035),
+        0 0 0 56px rgba(154, 106, 120, 0.025);
+      pointer-events: none;
+    }
 
-            <g fill="#9A6A78" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">
-              <text x="100" y="164">Supporting accords</text>
-              <text x="280" y="164">Supporting accords</text>
-              <text x="460" y="164">Supporting accords</text>
-            </g>
-          </svg>
-        </div>
-        <p class="preview-caption">
-          Illustrative preview — open the full chart for the actual data and percentages.
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--mauve);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 740px;
+      margin: 0;
+      color: var(--wine);
+      font-size: clamp(44px, 7vw, 76px);
+      letter-spacing: -0.035em;
+    }
+
+    h1 em {
+      color: var(--mauve);
+      font-weight: 400;
+    }
+
+    .hero-copy {
+      max-width: 600px;
+      margin: 26px 0 30px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border: 1px solid var(--bordeaux);
+      border-radius: 3px;
+      background: var(--bordeaux);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--wine);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--bordeaux);
+    }
+
+    .button.secondary:hover {
+      background: #F0E5E8;
+    }
+
+    .section {
+      padding: 66px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--wine);
+      font-size: clamp(30px, 4vw, 42px);
+    }
+
+    .section-heading p {
+      max-width: 420px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .chart-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .chart-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 25px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chart-card-top h3 {
+      margin: 0 0 5px;
+      color: var(--bordeaux);
+      font-size: 25px;
+    }
+
+    .chart-card-top p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .status {
+      flex-shrink: 0;
+      padding: 6px 10px;
+      border: 1px solid #E2CFD5;
+      border-radius: 20px;
+      color: var(--bordeaux);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .chart-preview {
+      padding: 24px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #F0E4E7 0%, transparent 65%),
+        var(--paper);
+    }
+
+    .preview-art {
+      display: grid;
+      min-height: 235px;
+      place-items: center;
+      padding: 25px;
+      border: 1px solid #E9DDE1;
+      border-radius: 5px;
+      background: rgba(255, 252, 249, 0.8);
+      text-align: center;
+    }
+
+    .preview-art svg {
+      display: block;
+      width: min(100%, 560px);
+      height: auto;
+    }
+
+    .preview-caption {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .chart-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 0 28px 28px;
+    }
+
+    .note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .about-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(255, 252, 249, 0.7);
+    }
+
+    .about-card .number {
+      color: var(--mauve);
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+    }
+
+    .about-card h3 {
+      margin: 8px 0;
+      color: var(--bordeaux);
+      font-size: 21px;
+    }
+
+    .about-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        width: min(calc(100% - 28px), 1120px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 20px 0;
+      }
+
+      .nav {
+        gap: 16px;
+      }
+
+      .hero {
+        padding: 70px 0 60px;
+      }
+
+      .hero::after {
+        top: 25px;
+        right: -155px;
+        width: 240px;
+        height: 240px;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .chart-card-top {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+      }
+
+      .chart-preview {
+        padding: 12px;
+      }
+
+      .chart-actions {
+        padding: 0 18px 22px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Navigation -->
+    <header class="topbar">
+      <a class="brand" href="#home">Fragrance Intelligence</a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#visualizations">Visualizations</a>
+        <a href="#approach">My Approach</a>
+        <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
+           target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <main id="home">
+      <section class="hero">
+        <p class="eyebrow">Data Analytics · Fragrance · Beauty</p>
+
+        <h1>
+          The art of fragrance,<br>
+          explored through <em>data.</em>
+        </h1>
+
+        <p class="hero-copy">
+          An independent analytics project exploring fragrance market data,
+          product attributes, and the relationships between fragrance accords.
+          Combining data engineering and analytical thinking to uncover patterns
+          in the world of perfume.
         </p>
-      </div>
 
-      <div class="chart-actions">
-        <a
-          class="button"
-          href="https://helgamchagel.github.io/fragrance-market-analysis/visualizations/accord-hierarchies/vanilla_hierarchy.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Open interactive visualization ↗</a>
+        <a class="button" href="#visualizations">
+          Explore the visualizations
+        </a>
+      </section>
 
-        <a
-          class="button secondary"
-          href="https://github.com/HelgaMcHagel/fragrance-market-analysis/blob/main/docs/visualizations/accord-hierarchies/vanilla_hierarchy.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >View HTML source</a>
-      </div>
-    </article>
+      <!-- Visualizations -->
+      <section class="section" id="visualizations">
+        <div class="section-heading">
+          <h2>Featured visualization</h2>
+          <p>
+            Interactive explorations designed to make fragrance data easier
+            to understand.
+          </p>
+        </div>
 
-    <p class="note">
-      More accord hierarchies can be added to this collection as they are published.
-    </p>
-  </section>
+        <article class="chart-card">
+          <div class="chart-card-top">
+            <div>
+              <h3>Vanilla Accord Hierarchy</h3>
+              <p>
+                Exploring the relationships between vanilla and related
+                fragrance accords.
+              </p>
+            </div>
 
-  <section class="section" id="approach">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Behind the visuals</p>
-        <h2>From data to discovery</h2>
-      </div>
+            <span class="status">Interactive</span>
+          </div>
+
+          <div class="chart-preview">
+            <div class="preview-art">
+              <!-- Illustrative preview; the interactive chart opens below. -->
+              <svg
+                viewBox="0 0 560 220"
+                role="img"
+                aria-label="Illustration of a vanilla accord hierarchy"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  stroke="#D4B5BF"
+                  stroke-width="1.5"
+                >
+                  <path d="M280 62 V88 H145 V112" />
+                  <path d="M280 88 V112" />
+                  <path d="M280 88 H415 V112" />
+                  <path d="M145 150 V169" />
+                  <path d="M280 150 V169" />
+                  <path d="M415 150 V169" />
+                </g>
+
+                <rect
+                  x="195" y="18" width="170" height="44" rx="8"
+                  fill="#674653"
+                />
+                <text
+                  x="280" y="45"
+                  text-anchor="middle"
+                  font-family="DM Sans, sans-serif"
+                  font-size="14"
+                  font-weight="600"
+                  fill="#FFFFFF"
+                >Vanilla</text>
+
+                <rect
+                  x="82" y="112" width="126" height="38" rx="6"
+                  fill="#F0E4E7" stroke="#D4B5BF"
+                />
+                <text
+                  x="145" y="136"
+                  text-anchor="middle"
+                  font-family="DM Sans, sans-serif"
+                  font-size="12"
+                  fill="#4D303D"
+                >Sweet</text>
+
+                <rect
+                  x="217" y="112" width="126" height="38" rx="6"
+                  fill="#F0E4E7" stroke="#D4B5BF"
+                />
+                <text
+                  x="280" y="136"
+                  text-anchor="middle"
+                  font-family="DM Sans, sans-serif"
+                  font-size="12"
+                  fill="#4D303D"
+                >Gourmand</text>
+
+                <rect
+                  x="352" y="112" width="126" height="38" rx="6"
+                  fill="#F0E4E7" stroke="#D4B5BF"
+                />
+                <text
+                  x="415" y="136"
+                  text-anchor="middle"
+                  font-family="DM Sans, sans-serif"
+                  font-size="12"
+                  fill="#4D303D"
+                >Creamy</text>
+
+                <g
+                  font-family="DM Sans, sans-serif"
+                  font-size="10"
+                  fill="#786D71"
+                  text-anchor="middle"
+                >
+                  <text x="145" y="185">Accord family</text>
+                  <text x="280" y="185">Accord family</text>
+                  <text x="415" y="185">Accord family</text>
+                </g>
+              </svg>
+            </div>
+
+            <p class="preview-caption">
+              Illustrative preview. Open the interactive visualization to
+              explore the actual hierarchy.
+            </p>
+          </div>
+
+          <div class="chart-actions">
+            <a
+              class="button"
+              href="https://helgamchagel.github.io/fragrance-market-analysis/visualizations/accord-hierarchies/vanilla_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open interactive visualization ↗
+            </a>
+
+            <a
+              class="button secondary"
+              href="https://github.com/HelgaMcHagel/fragrance-market-analysis/blob/main/docs/visualizations/accord-hierarchies/vanilla_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View HTML source
+            </a>
+          </div>
+        </article>
+
+        <p class="note">
+          The interactive visualization must be committed to the repository
+          at the corresponding path and GitHub Pages must be enabled for the
+          live link to work.
+        </p>
+      </section>
+
+      <!-- Approach -->
+      <section class="section" id="approach">
+        <div class="section-heading">
+          <h2>My approach</h2>
+          <p>
+            From raw marketplace listings to structured, meaningful
+            analytical outputs.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card">
+            <span class="number">01</span>
+            <h3>Data quality</h3>
+            <p>
+              Cleaning and standardizing fragrance brands, product titles,
+              attributes, and prices to build a reliable analytical foundation.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <span class="number">02</span>
+            <h3>Data engineering</h3>
+            <p>
+              Building reproducible data workflows and structured datasets
+              that support further analysis and exploration.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <span class="number">03</span>
+            <h3>Visual analytics</h3>
+            <p>
+              Translating structured data into interactive visualizations
+              that reveal relationships and make findings easier to explore.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Fragrance Intelligence · An independent data analytics project</p>
+
       <p>
-        A data-driven perspective on the relationships that make each
-        fragrance profile distinctive.
+        <a
+          href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Explore the project on GitHub ↗</a>
       </p>
-    </div>
+    </footer>
 
-    <div class="about-grid">
-      <article class="about-card">
-        <div class="number">01</div>
-        <h3>Structure</h3>
-        <p>Organize fragrance accords into a hierarchy of dominant, secondary, and tertiary relationships.</p>
-      </article>
-
-      <article class="about-card">
-        <div class="number">02</div>
-        <h3>Measure</h3>
-        <p>Explore fragrance counts and proportional shares at each level of the hierarchy.</p>
-      </article>
-
-      <article class="about-card">
-        <div class="number">03</div>
-        <h3>Discover</h3>
-        <p>Use interactive visualizations to uncover patterns and ask new questions about fragrance composition.</p>
-      </article>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <p>Fragrance Intelligence · An independent data analytics project</p>
-  <p><a href="https://github.com/HelgaMcHagel/fragrance-market-analysis">Explore the project on GitHub ↗</a></p>
-</footer>
-```
-
-&#x20; \</div>
-\</body>
-\</html>
+  </div>
+</body>
+</html>
