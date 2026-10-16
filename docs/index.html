@@ -397,6 +397,7 @@
     }
   </style>
 </head>
+```html
 <body>
   <div class="page">
 
@@ -407,13 +408,17 @@
       <nav class="nav" aria-label="Main navigation">
         <a href="#visualizations">Visualizations</a>
         <a href="#approach">My Approach</a>
-        <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
-           target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a
+          href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
+          target="_blank"
+          rel="noopener noreferrer"
+        >GitHub</a>
       </nav>
     </header>
 
-    <!-- Hero -->
     <main id="home">
+
+      <!-- Hero -->
       <section class="hero">
         <p class="eyebrow">Data Analytics · Fragrance · Beauty</p>
 
@@ -425,8 +430,8 @@
         <p class="hero-copy">
           An independent analytics project exploring fragrance market data,
           product attributes, and the relationships between fragrance accords.
-          Combining data engineering and analytical thinking to uncover patterns
-          in the world of perfume.
+          Combining data engineering and analytical thinking to uncover
+          patterns in the world of perfume.
         </p>
 
         <a class="button" href="#visualizations">
@@ -434,22 +439,26 @@
         </a>
       </section>
 
-      <!-- Visualizations -->
+      <!-- Featured Visualization -->
       <section class="section" id="visualizations">
+
         <div class="section-heading">
           <h2>Featured visualization</h2>
+
           <p>
-            Interactive explorations designed to make fragrance data easier
-            to understand.
+            Explore fragrance accords through interactive visual analytics.
+            Select elements and navigate the hierarchy directly below.
           </p>
         </div>
 
         <article class="chart-card">
+
           <div class="chart-card-top">
             <div>
               <h3>Vanilla Accord Hierarchy</h3>
+
               <p>
-                Exploring the relationships between vanilla and related
+                An interactive exploration of vanilla and its related
                 fragrance accords.
               </p>
             </div>
@@ -457,104 +466,40 @@
             <span class="status">Interactive</span>
           </div>
 
+          <!-- Embedded interactive visualization -->
           <div class="chart-preview">
-            <div class="preview-art">
-              <!-- Illustrative preview; the interactive chart opens below. -->
-              <svg
-                viewBox="0 0 560 220"
-                role="img"
-                aria-label="Illustration of a vanilla accord hierarchy"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill="none"
-                  stroke="#D4B5BF"
-                  stroke-width="1.5"
-                >
-                  <path d="M280 62 V88 H145 V112" />
-                  <path d="M280 88 V112" />
-                  <path d="M280 88 H415 V112" />
-                  <path d="M145 150 V169" />
-                  <path d="M280 150 V169" />
-                  <path d="M415 150 V169" />
-                </g>
-
-                <rect
-                  x="195" y="18" width="170" height="44" rx="8"
-                  fill="#674653"
-                />
-                <text
-                  x="280" y="45"
-                  text-anchor="middle"
-                  font-family="DM Sans, sans-serif"
-                  font-size="14"
-                  font-weight="600"
-                  fill="#FFFFFF"
-                >Vanilla</text>
-
-                <rect
-                  x="82" y="112" width="126" height="38" rx="6"
-                  fill="#F0E4E7" stroke="#D4B5BF"
-                />
-                <text
-                  x="145" y="136"
-                  text-anchor="middle"
-                  font-family="DM Sans, sans-serif"
-                  font-size="12"
-                  fill="#4D303D"
-                >Sweet</text>
-
-                <rect
-                  x="217" y="112" width="126" height="38" rx="6"
-                  fill="#F0E4E7" stroke="#D4B5BF"
-                />
-                <text
-                  x="280" y="136"
-                  text-anchor="middle"
-                  font-family="DM Sans, sans-serif"
-                  font-size="12"
-                  fill="#4D303D"
-                >Gourmand</text>
-
-                <rect
-                  x="352" y="112" width="126" height="38" rx="6"
-                  fill="#F0E4E7" stroke="#D4B5BF"
-                />
-                <text
-                  x="415" y="136"
-                  text-anchor="middle"
-                  font-family="DM Sans, sans-serif"
-                  font-size="12"
-                  fill="#4D303D"
-                >Creamy</text>
-
-                <g
-                  font-family="DM Sans, sans-serif"
-                  font-size="10"
-                  fill="#786D71"
-                  text-anchor="middle"
-                >
-                  <text x="145" y="185">Accord family</text>
-                  <text x="280" y="185">Accord family</text>
-                  <text x="415" y="185">Accord family</text>
-                </g>
-              </svg>
-            </div>
+            <iframe
+              src="https://helgamchagel.github.io/fragrance-market-analysis/visualizations/accord-hierarchies/vanilla_hierarchy.html"
+              title="Interactive Vanilla Accord Hierarchy"
+              width="100%"
+              height="650"
+              loading="lazy"
+              style="
+                display: block;
+                width: 100%;
+                min-height: 500px;
+                border: 1px solid #E8DDE0;
+                border-radius: 5px;
+                background: #FFFCF9;
+              "
+              allowfullscreen
+            ></iframe>
 
             <p class="preview-caption">
-              Illustrative preview. Open the interactive visualization to
-              explore the actual hierarchy.
+              Interact with the visualization above. If it does not load,
+              open the standalone version below.
             </p>
           </div>
 
           <div class="chart-actions">
+
             <a
               class="button"
               href="https://helgamchagel.github.io/fragrance-market-analysis/visualizations/accord-hierarchies/vanilla_hierarchy.html"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open interactive visualization ↗
+              Open full visualization ↗
             </a>
 
             <a
@@ -565,68 +510,88 @@
             >
               View HTML source
             </a>
+
           </div>
         </article>
 
         <p class="note">
-          The interactive visualization must be committed to the repository
-          at the corresponding path and GitHub Pages must be enabled for the
-          live link to work.
+          The embedded chart loads from the project's GitHub Pages website.
+          Its interactive features depend on the functionality implemented
+          in the visualization's own HTML file.
         </p>
+
       </section>
 
-      <!-- Approach -->
+      <!-- Project Approach -->
       <section class="section" id="approach">
+
         <div class="section-heading">
           <h2>My approach</h2>
+
           <p>
-            From raw marketplace listings to structured, meaningful
-            analytical outputs.
+            From raw marketplace listings to structured data and meaningful
+            analytical insights.
           </p>
         </div>
 
         <div class="about-grid">
+
           <article class="about-card">
             <span class="number">01</span>
+
             <h3>Data quality</h3>
+
             <p>
               Cleaning and standardizing fragrance brands, product titles,
-              attributes, and prices to build a reliable analytical foundation.
+              attributes, and prices to create a reliable analytical
+              foundation.
             </p>
           </article>
 
           <article class="about-card">
             <span class="number">02</span>
+
             <h3>Data engineering</h3>
+
             <p>
-              Building reproducible data workflows and structured datasets
-              that support further analysis and exploration.
+              Developing structured datasets and reproducible workflows
+              to support analysis of fragrance marketplace data.
             </p>
           </article>
 
           <article class="about-card">
             <span class="number">03</span>
+
             <h3>Visual analytics</h3>
+
             <p>
-              Translating structured data into interactive visualizations
+              Turning structured data into interactive visualizations
               that reveal relationships and make findings easier to explore.
             </p>
           </article>
+
         </div>
       </section>
+
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <p>Fragrance Intelligence · An independent data analytics project</p>
+
+      <p>
+        Fragrance Intelligence · An independent data analytics project
+      </p>
 
       <p>
         <a
           href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
           target="_blank"
           rel="noopener noreferrer"
-        >Explore the project on GitHub ↗</a>
+        >
+          Explore the project on GitHub ↗
+        </a>
       </p>
+
     </footer>
 
   </div>
