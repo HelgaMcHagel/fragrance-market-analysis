@@ -1018,3 +1018,22 @@ p {
     flex-basis: 230px;
   }
 }
+
+
+/* Give the accord-card percentages more visual emphasis. */
+.accord-percentage {
+  font-size: clamp(2.8rem, 4vw, 3.4rem);
+  line-height: 1.05;
+}
+
+@media (max-width: 900px) {
+  .accord-percentage {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .accord-percentage {
+    font-size: 2.6rem;
+  }
+}
