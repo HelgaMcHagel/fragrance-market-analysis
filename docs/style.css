@@ -372,7 +372,7 @@ p {
   margin: 0 0 10px;
   color: var(--plum);
   font-family: "DM Sans", sans-serif;
-  font-size: clamp(2.5rem, 3vw, 3.1rem);
+  font-size: clamp(2.8rem, 3.5vw, 3.4rem);
   font-weight: 600;
   letter-spacing: -0.06em;
   line-height: 1.1;
