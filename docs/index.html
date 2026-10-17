@@ -82,7 +82,9 @@
   <main id="top">
     <section class="hero container">
       <p class="eyebrow">DATA · FRAGRANCE · DISCOVERY</p>
+
       <h1>The art of fragrance, explored through data.</h1>
+
       <p class="hero-description">
         Exploring fragrance trends and olfactory families through data analysis,
         data quality practices, and visual storytelling.
@@ -116,7 +118,9 @@
     <section class="accord-section container" id="accord-analysis">
       <div class="section-heading">
         <p class="eyebrow">THE OLFACTORY LANDSCAPE</p>
+
         <h2>Explore fragrance accords</h2>
+
         <p>
           Discover the dominant accords across 68,511 fragrances with accord
           data. Each percentage represents the share of fragrances in which
@@ -125,70 +129,98 @@
         </p>
       </div>
 
-      
-      <section class="analysis-overview" aria-labelledby="analysis-overview-title">
-        <div class="analysis-intro">
-          <p class="eyebrow">THE DATA AT A GLANCE</p>
-          <h3 id="analysis-overview-title">Understanding the accord landscape</h3>
+      <!-- Accord analysis overview -->
+      <section
+        class="analysis-overview"
+        aria-labelledby="analysis-overview-title"
+      >
+        <div class="analysis-overview-heading">
+          <p class="eyebrow">A CLOSER LOOK AT THE DATA</p>
+
+          <h3 id="analysis-overview-title">
+            The fragrance landscape at a glance
+          </h3>
+
           <p>
-            Before exploring individual accord hierarchies, discover which
-            accords dominate the fragrance landscape and which combinations
-            appear most frequently across 68,511 fragrances with accord data.
+            Across 68,511 fragrances, which accords appear most often—and
+            which combinations define their recorded scent profiles?
+            These two visualizations offer a starting point for exploring
+            the patterns behind the data.
           </p>
         </div>
 
         <div class="analysis-visual-grid">
           <article class="analysis-visual-card">
-            <h4>Dominant accord distribution</h4>
-            <p>
-              A ranking of fragrances by their first-listed, or dominant,
-              accord.
-            </p>
+            <div class="analysis-visual-copy">
+              <span class="analysis-visual-number">01</span>
+
+              <h4>Dominant accord distribution</h4>
+
+              <p>
+                A ranking of the most frequently listed dominant accords,
+                measured as a share of the analyzed fragrances.
+              </p>
+            </div>
+
             <a
+              class="analysis-chart-link"
               href="visualizations/accord-analysis/dominant-accord-distribution.png"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Open the dominant accord distribution chart"
+              aria-label="Open the full dominant accord distribution chart"
             >
-              <img
-                src="visualizations/accord-analysis/dominant-accord-distribution.png"
-                alt="Horizontal bar chart ranking dominant accords by percentage of fragrances. Woody leads at 14.18%, followed by citrus at 13.55% and fruity at 8.07%."
-                loading="lazy"
-              >
-              <span class="visual-link">View full chart ↗</span>
+              <div class="analysis-chart-frame">
+                <img
+                  src="visualizations/accord-analysis/dominant-accord-distribution.png"
+                  alt="Dominant accord distribution: woody leads at 14.18%, followed by citrus at 13.55% and fruity at 8.07%."
+                  loading="lazy"
+                >
+              </div>
+
+              <span class="visual-link">Explore full visualization ↗</span>
             </a>
           </article>
 
           <article class="analysis-visual-card">
-            <h4>Most common dominant–secondary pairs</h4>
-            <p>
-              The most frequent combinations of first-listed and
-              second-listed accords, ranked by fragrance count.
-            </p>
+            <div class="analysis-visual-copy">
+              <span class="analysis-visual-number">02</span>
+
+              <h4>Dominant–secondary accord pairs</h4>
+
+              <p>
+                The most frequent ordered combinations of first-listed
+                and second-listed accords, ranked by fragrance count.
+              </p>
+            </div>
+
             <a
+              class="analysis-chart-link"
               href="visualizations/accord-analysis/dominant-secondary-pairs.png"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Open the dominant-secondary accord pairs chart"
+              aria-label="Open the full dominant-secondary accord pairs chart"
             >
-              <img
-                src="visualizations/accord-analysis/dominant-secondary-pairs.png"
-                alt="Horizontal bar chart ranking dominant-secondary accord pairs by fragrance count. Fruity followed by sweet is the most common pair."
-                loading="lazy"
-              >
-              <span class="visual-link">View full chart ↗</span>
+              <div class="analysis-chart-frame">
+                <img
+                  src="visualizations/accord-analysis/dominant-secondary-pairs.png"
+                  alt="Dominant-secondary accord pairs ranked by frequency. Fruity followed by sweet is the most common pair."
+                  loading="lazy"
+                >
+              </div>
+
+              <span class="visual-link">Explore full visualization ↗</span>
             </a>
           </article>
         </div>
 
         <p class="analysis-note">
-          Percentages for dominant accords represent their share of all
-          68,511 fragrances in the analysis population. Accord-pair rankings
-          count fragrances with the corresponding ordered pair.
+          The dominant accord is the first-listed accord in the source data.
+          Percentages are calculated against the 68,511-fragrance analysis
+          population; pair rankings reflect the frequency of each ordered pair.
         </p>
       </section>
 
-
+      <!-- Dominant accord cards -->
       <div class="accord-grid">
 
         <!-- 01 Woody -->
@@ -201,10 +233,11 @@
             family ranging from dry and crisp to deep and warm.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/woody_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore woody accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/woody_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore woody accords ↗</a>
           </p>
         </article>
 
@@ -218,10 +251,11 @@
             character, from juicy sweetness to crisp, bitter freshness.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/citrus_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore citrus accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/citrus_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore citrus accords ↗</a>
           </p>
         </article>
 
@@ -235,10 +269,11 @@
             accords add playful sweetness, freshness, and richness.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/fruity_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore fruity accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/fruity_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore fruity accords ↗</a>
           </p>
         </article>
 
@@ -252,10 +287,11 @@
             creamy, luminous, indolic, and intensely sensual facets.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/white_floral_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore white floral accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/white_floral_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore white floral accords ↗</a>
           </p>
         </article>
 
@@ -269,10 +305,11 @@
             airy bouquets to lush, sophisticated floral compositions.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/floral_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore floral accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/floral_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore floral accords ↗</a>
           </p>
         </article>
 
@@ -286,10 +323,11 @@
             and invigorating botanical compositions.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/aromatic_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore aromatic accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/aromatic_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore aromatic accords ↗</a>
           </p>
         </article>
 
@@ -303,10 +341,11 @@
             often bringing a smooth, sensual character to a fragrance.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/amber_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore amber accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/amber_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore amber accords ↗</a>
           </p>
         </article>
 
@@ -320,10 +359,11 @@
             fragrances an inviting, bold, and often sensual character.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/warm_spicy_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore warm spicy accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/warm_spicy_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore warm spicy accords ↗</a>
           </p>
         </article>
 
@@ -337,10 +377,11 @@
             delicate to rich, decadent, and dessert-inspired.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/sweet_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore sweet accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/sweet_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore sweet accords ↗</a>
           </p>
         </article>
 
@@ -354,10 +395,11 @@
             composition or become its central gourmand signature.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/vanilla_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore vanilla accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/vanilla_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore vanilla accords ↗</a>
           </p>
         </article>
 
@@ -371,10 +413,11 @@
             softness, and deeper, richer interpretations.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/rose_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore rose accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/rose_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore rose accords ↗</a>
           </p>
         </article>
 
@@ -388,10 +431,11 @@
             delicate cosmetics, velvety textures, and understated elegance.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/powdery_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore powdery accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/powdery_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore powdery accords ↗</a>
           </p>
         </article>
 
@@ -405,10 +449,11 @@
             a skin-like quality and a smooth, lasting finish.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/musky_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore musky accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/musky_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore musky accords ↗</a>
           </p>
         </article>
 
@@ -422,10 +467,11 @@
             freshness with a lively, aromatic edge.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/fresh_spicy_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore fresh spicy accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/fresh_spicy_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore fresh spicy accords ↗</a>
           </p>
         </article>
 
@@ -439,10 +485,11 @@
             of crushed leaves, stems, and fresh botanical growth.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/green_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore green accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/green_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore green accords ↗</a>
           </p>
         </article>
 
@@ -456,10 +503,11 @@
             from smoky and woody to resinous, leathery, and sweet.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/oud_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore oud accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/oud_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore oud accords ↗</a>
           </p>
         </article>
 
@@ -473,10 +521,11 @@
             smoky materials, polished leather, or dark, rugged facets.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/leather_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore leather accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/leather_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore leather accords ↗</a>
           </p>
         </article>
 
@@ -490,10 +539,11 @@
             recognisable balance of freshness and calming warmth.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/lavender_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore lavender accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/lavender_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore lavender accords ↗</a>
           </p>
         </article>
 
@@ -507,10 +557,11 @@
             depth and a distinctive, grounding character.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/patchouli_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore patchouli accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/patchouli_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore patchouli accords ↗</a>
           </p>
         </article>
 
@@ -524,10 +575,11 @@
             sea breezes, watery transparency, and clean mineral nuances.
           </p>
           <p>
-            <a href="visualizations/accord-hierarchies/aquatic_hierarchy.html"
-               target="_blank" rel="noopener noreferrer">
-              Explore aquatic accords ↗
-            </a>
+            <a
+              href="visualizations/accord-hierarchies/aquatic_hierarchy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Explore aquatic accords ↗</a>
           </p>
         </article>
 
@@ -537,7 +589,9 @@
     <section class="approach-section container" id="approach">
       <div class="section-heading">
         <p class="eyebrow">BEHIND THE ANALYSIS</p>
+
         <h2>From raw data to fragrance insights</h2>
+
         <p>
           A structured approach to turning complex fragrance data into
           reliable, meaningful, and accessible insights.
@@ -590,6 +644,7 @@
   <footer class="site-footer">
     <div class="container">
       <p>Fragrance Intelligence with Olga</p>
+
       <p>
         Data meets the art of fragrance.
         <a
@@ -623,6 +678,7 @@
       themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
 
       const themeColor = document.querySelector('meta[name="theme-color"]');
+
       if (themeColor) {
         themeColor.setAttribute(
           "content",
