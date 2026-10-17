@@ -1,4 +1,3 @@
-
 /* =========================================
    FRAGRANCE INTELLIGENCE WITH OLGA
    Dark luxury · Editorial · Data · Fragrance
@@ -355,7 +354,7 @@ p {
   box-shadow: var(--shadow-hover);
 }
 
-/* More prominent accord names */
+/* Accord names */
 
 .about-card h3 {
   margin-bottom: 16px;
@@ -366,13 +365,13 @@ p {
   line-height: 1.25;
 }
 
-/* Dominant accord percentage */
+/* Dominant accord percentages */
 
 .accord-percentage {
   margin: 0 0 10px;
   color: var(--plum);
   font-family: "DM Sans", sans-serif;
-  font-size: clamp(2.8rem, 3.5vw, 3.4rem);
+  font-size: clamp(2.6rem, 3.2vw, 3.1rem);
   font-weight: 600;
   letter-spacing: -0.06em;
   line-height: 1.1;
@@ -436,6 +435,104 @@ p {
 
 .approach-grid .about-card > p {
   margin-bottom: 14px;
+}
+
+/* Accord analysis overview */
+
+.analysis-overview {
+  margin: 0 0 56px;
+}
+
+.analysis-intro {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.analysis-intro h3 {
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.analysis-intro > p:last-child {
+  margin-bottom: 0;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.analysis-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.analysis-visual-card {
+  min-width: 0;
+  padding: 22px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.analysis-visual-card h4 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.analysis-visual-card > p {
+  margin-bottom: 18px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.analysis-visual-card a {
+  display: block;
+  text-align: center;
+}
+
+.analysis-visual-card img {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.visual-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.analysis-note {
+  max-width: 900px;
+  margin: 18px auto 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Methodology section */
+
+.approach-section {
+  border-top: 1px solid var(--border);
 }
 
 /* Footer */
@@ -509,7 +606,18 @@ p {
   }
 
   .accord-percentage {
-    font-size: 2.7rem;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .analysis-visual-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .analysis-visual-card {
+    padding: 16px;
   }
 }
 
@@ -601,105 +709,11 @@ p {
   }
 
   .accord-percentage {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
 
   .site-footer {
     padding: 28px 0;
-  }
-}
-
-
-/* Accord analysis overview */
-.analysis-overview {
-  margin: 0 0 56px;
-}
-
-.analysis-intro {
-  max-width: 760px;
-  margin: 0 auto 32px;
-  text-align: center;
-}
-
-.analysis-intro h3 {
-  margin-bottom: 16px;
-  color: var(--text);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  letter-spacing: -0.03em;
-}
-
-.analysis-intro > p:last-child {
-  margin-bottom: 0;
-  color: var(--text-muted);
-  line-height: 1.8;
-}
-
-.analysis-visual-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-  align-items: start;
-}
-
-.analysis-visual-card {
-  min-width: 0;
-  padding: 22px;
-  overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.analysis-visual-card h4 {
-  margin: 0 0 8px;
-  color: var(--text);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.analysis-visual-card > p {
-  margin-bottom: 18px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
-.analysis-visual-card a {
-  display: block;
-}
-
-.analysis-visual-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.visual-link {
-  display: inline-block;
-  margin-top: 12px;
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-
-.analysis-note {
-  max-width: 900px;
-  margin: 18px auto 0;
-  color: var(--text-muted);
-  font-size: 0.82rem;
-  line-height: 1.7;
-}
-
-@media (max-width: 760px) {
-  .analysis-visual-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
-  }
-
-  .analysis-visual-card {
-    padding: 16px;
   }
 }
 
