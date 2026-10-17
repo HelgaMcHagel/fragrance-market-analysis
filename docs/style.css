@@ -769,3 +769,65 @@ p {
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* Focused layout corrections: keep the hero centered and remove decoration. */
+.hero {
+  position: relative;
+  width: min(var(--content-width), calc(100% - 48px));
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero::before,
+.hero::after {
+  content: none !important;
+  display: none !important;
+}
+
+.hero > .eyebrow,
+.hero > h1,
+.hero > .hero-description {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.hero-actions {
+  justify-content: center;
+}
+
+/* Keep the chart preview area compact instead of stretching across the card. */
+.analysis-chart-frame {
+  width: min(100%, 520px);
+  margin-inline: auto;
+}
+
+.analysis-chart-frame img {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  max-height: 340px;
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.analysis-visual-card {
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    width: calc(100% - 32px);
+  }
+
+  .analysis-chart-frame {
+    width: min(100%, 460px);
+  }
+
+  .analysis-chart-frame img {
+    max-width: 100%;
+    max-height: none;
+  }
+}
