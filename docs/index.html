@@ -5,16 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Fragrance Intelligence | Fragrance Data &amp; Accord Analysis</title>
+  <title>Fragrance Intelligence with Olga | Fragrance Data &amp; Accord Analysis</title>
 
   <meta
     name="description"
     content="Explore fragrance accords, olfactory families, and fragrance data through data analysis, data quality, and visual storytelling."
   >
 
-  <meta name="theme-color" content="#f8f5f2">
-
-  <meta property="og:title" content="Fragrance Intelligence">
+  <meta name="theme-color" content="#21171f">
+  <meta property="og:title" content="Fragrance Intelligence with Olga">
   <meta
     property="og:description"
     content="The art of fragrance, explored through data."
@@ -27,19 +26,34 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    // Apply the saved theme before the page renders.
+    (function () {
+      let theme = "dark";
+
+      try {
+        theme = localStorage.getItem("fragrance-theme") || "dark";
+      } catch (error) {
+        // Use dark mode if browser storage is unavailable.
+      }
+
+      document.documentElement.dataset.theme =
+        theme === "light" ? "light" : "dark";
+    })();
+  </script>
 </head>
 
 <body>
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
-      <a class="logo" href="#top">Fragrance Intelligence</a>
+      <a class="logo" href="#top">Fragrance Intelligence with Olga</a>
 
       <div class="nav-links">
         <a href="#accord-analysis">Accord Analysis</a>
@@ -59,12 +73,13 @@
         aria-pressed="false"
       >
         <span class="theme-toggle-icon" aria-hidden="true">☼</span>
-        <span class="theme-toggle-label">Light mode</span>
+        <span class="theme-toggle-label" id="theme-toggle-label">Light mode</span>
       </button>
     </nav>
   </header>
 
   <main id="top">
+    <!-- Hero -->
     <section class="hero container">
       <p class="eyebrow">DATA · FRAGRANCE · DISCOVERY</p>
 
@@ -100,6 +115,7 @@
       </div>
     </section>
 
+    <!-- Accord analysis -->
     <section class="accord-section container" id="accord-analysis">
       <div class="section-heading">
         <p class="eyebrow">THE OLFACTORY LANDSCAPE</p>
@@ -114,675 +130,112 @@
         </p>
       </div>
 
-      <div class="accord-grid">
+      <!-- Overall dataset overview -->
+      <section
+        class="analysis-overview"
+        aria-labelledby="analysis-overview-title"
+      >
+        <div class="analysis-overview-heading">
+          <p class="eyebrow">A CLOSER LOOK AT THE DATA</p>
 
-        <!-- 01 Woody -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/woody_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Woody accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/woody_accord_hierarchy.png"
-              alt="Woody accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>01 - Woody</h3>
-            <p class="accord-percentage">14.18%</p>
-            <p class="accord-count"><strong>9,718 fragrances</strong></p>
-            <p class="accord-description">
-              Woods, earthy textures, and grounding notes create a versatile
-              family ranging from dry and crisp to deep and warm.
-            </p>
+          <h3 id="analysis-overview-title">
+            The fragrance landscape at a glance
+          </h3>
+
+          <p>
+            Across 68,511 fragrances, which accords appear most often—and
+            which combinations define their recorded scent profiles?
+            These two visualizations offer a starting point for exploring
+            the patterns behind the data.
+          </p>
+        </div>
+
+        <div class="analysis-visual-grid">
+          <!-- Overall chart 1 -->
+          <article class="analysis-visual-card">
+            <div class="analysis-visual-copy">
+              <span class="analysis-visual-number">01</span>
+
+              <h4>Dominant accord distribution</h4>
+
+              <p>
+                A ranking of the most frequently listed dominant accords,
+                measured as a share of the analyzed fragrances.
+              </p>
+            </div>
+
             <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/woody_accord_hierarchy.png"
+              class="analysis-chart-link"
+              href="visualizations/accord-analysis/dominant-accord-distribution.png"
               target="_blank"
               rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 02 Citrus -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/citrus_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Citrus accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/citrus_accord_hierarchy.png"
-              alt="Citrus accord hierarchy"
-              loading="lazy"
+              aria-label="Open the full dominant accord distribution chart"
             >
-          </a>
-          <div class="accord-card-content">
-            <h3>02 - Citrus</h3>
-            <p class="accord-percentage">13.55%</p>
-            <p class="accord-count"><strong>9,280 fragrances</strong></p>
-            <p class="accord-description">
-              Bright, sparkling, and refreshing citrus accords bring zesty
-              character, from juicy sweetness to crisp, bitter freshness.
-            </p>
+              <div class="analysis-chart-frame">
+                <img
+                  src="visualizations/accord-analysis/dominant-accord-distribution.png"
+                  alt="Dominant accord distribution: woody leads at 14.18%, followed by citrus at 13.55% and fruity at 8.07%."
+                  loading="lazy"
+                >
+              </div>
+
+              <span class="visual-link">Explore full visualization ↗</span>
+            </a>
+          </article>
+
+          <!-- Overall chart 2 -->
+          <article class="analysis-visual-card">
+            <div class="analysis-visual-copy">
+              <span class="analysis-visual-number">02</span>
+
+              <h4>Dominant–secondary accord pairs</h4>
+
+              <p>
+                The most frequent ordered combinations of first-listed
+                and second-listed accords, ranked by fragrance count.
+              </p>
+            </div>
+
             <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/citrus_accord_hierarchy.png"
+              class="analysis-chart-link"
+              href="visualizations/accord-analysis/dominant-secondary-pairs.png"
               target="_blank"
               rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 03 Fruity -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/fruity_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Fruity accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/fruity_accord_hierarchy.png"
-              alt="Fruity accord hierarchy"
-              loading="lazy"
+              aria-label="Open the full dominant-secondary accord pairs chart"
             >
-          </a>
-          <div class="accord-card-content">
-            <h3>03 - Fruity</h3>
-            <p class="accord-percentage">8.07%</p>
-            <p class="accord-count"><strong>5,530 fragrances</strong></p>
-            <p class="accord-description">
-              From juicy berries and crisp apples to tropical fruits, fruity
-              accords add playful sweetness, freshness, and richness.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/fruity_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
+              <div class="analysis-chart-frame">
+                <img
+                  src="visualizations/accord-analysis/dominant-secondary-pairs.png"
+                  alt="Dominant-secondary accord pairs ranked by frequency. Fruity followed by sweet is the most common pair."
+                  loading="lazy"
+                >
+              </div>
 
-        <!-- 04 White Floral -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/white_floral_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full White Floral accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/white_floral_accord_hierarchy.png"
-              alt="White Floral accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>04 - White Floral</h3>
-            <p class="accord-percentage">7.56%</p>
-            <p class="accord-count"><strong>5,181 fragrances</strong></p>
-            <p class="accord-description">
-              White flowers create expressive floral profiles, often blending
-              creamy, luminous, indolic, and intensely sensual facets.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/white_floral_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
+              <span class="visual-link">Explore full visualization ↗</span>
+            </a>
+          </article>
+        </div>
 
-        <!-- 05 Floral -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/floral_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Floral accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/floral_accord_hierarchy.png"
-              alt="Floral accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>05 - Floral</h3>
-            <p class="accord-percentage">7.17%</p>
-            <p class="accord-count"><strong>4,910 fragrances</strong></p>
-            <p class="accord-description">
-              A broad family inspired by flowers, ranging from delicate and
-              airy bouquets to lush, sophisticated floral compositions.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/floral_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
+        <p class="analysis-note">
+          The dominant accord is the first-listed accord in the source data.
+          Percentages are calculated against the 68,511-fragrance analysis
+          population; pair rankings reflect the frequency of each ordered pair.
+        </p>
+      </section>
 
-        <!-- 06 Aromatic -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/aromatic_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Aromatic accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/aromatic_accord_hierarchy.png"
-              alt="Aromatic accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>06 - Aromatic</h3>
-            <p class="accord-percentage">6.17%</p>
-            <p class="accord-count"><strong>4,229 fragrances</strong></p>
-            <p class="accord-description">
-              Herbal and aromatic facets evoke fresh herbs, fragrant leaves,
-              and invigorating botanical compositions.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/aromatic_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 07 Amber -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/amber_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Amber accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/amber_accord_hierarchy.png"
-              alt="Amber accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>07 - Amber</h3>
-            <p class="accord-percentage">6.00%</p>
-            <p class="accord-count"><strong>4,112 fragrances</strong></p>
-            <p class="accord-description">
-              Warm, resinous, and enveloping accords create depth and richness,
-              often bringing a smooth, sensual character to a fragrance.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/amber_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 08 Warm Spicy -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/warm_spicy_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Warm Spicy accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/warm_spicy_accord_hierarchy.png"
-              alt="Warm Spicy accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>08 - Warm Spicy</h3>
-            <p class="accord-percentage">5.31%</p>
-            <p class="accord-count"><strong>3,635 fragrances</strong></p>
-            <p class="accord-description">
-              Cinnamon-like warmth, rich spices, and piquant nuances lend
-              fragrances an inviting, bold, and often sensual character.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/warm_spicy_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 09 Sweet -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/sweet_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Sweet accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/sweet_accord_hierarchy.png"
-              alt="Sweet accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>09 - Sweet</h3>
-            <p class="accord-percentage">4.86%</p>
-            <p class="accord-count"><strong>3,327 fragrances</strong></p>
-            <p class="accord-description">
-              Gourmand-like sweetness and sugary facets range from soft and
-              delicate to rich, decadent, and dessert-inspired.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/sweet_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 10 Vanilla -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/vanilla_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Vanilla accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/vanilla_accord_hierarchy.png"
-              alt="Vanilla accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>10 - Vanilla</h3>
-            <p class="accord-percentage">3.61%</p>
-            <p class="accord-count"><strong>2,476 fragrances</strong></p>
-            <p class="accord-description">
-              Creamy, comforting, and richly sweet, vanilla can soften a
-              composition or become its central gourmand signature.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/vanilla_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 11 Rose -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/rose_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Rose accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/rose_accord_hierarchy.png"
-              alt="Rose accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>11 - Rose</h3>
-            <p class="accord-percentage">3.16%</p>
-            <p class="accord-count"><strong>2,166 fragrances</strong></p>
-            <p class="accord-description">
-              Rose accords span fresh petals, dewy floral elegance, powdery
-              softness, and deeper, richer interpretations.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/rose_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 12 Powdery -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/powdery_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Powdery accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/powdery_accord_hierarchy.png"
-              alt="Powdery accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>12 - Powdery</h3>
-            <p class="accord-percentage">3.01%</p>
-            <p class="accord-count"><strong>2,060 fragrances</strong></p>
-            <p class="accord-description">
-              Soft, smooth, and often nostalgic, powdery accords evoke
-              delicate cosmetics, velvety textures, and understated elegance.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/powdery_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 13 Musky -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/musky_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Musky accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/musky_accord_hierarchy.png"
-              alt="Musky accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>13 - Musky</h3>
-            <p class="accord-percentage">2.34%</p>
-            <p class="accord-count"><strong>1,606 fragrances</strong></p>
-            <p class="accord-description">
-              Clean, soft, or sensual, musky accords often lend a fragrance
-              a skin-like quality and a smooth, lasting finish.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/musky_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 14 Fresh Spicy -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/fresh_spicy_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Fresh Spicy accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/fresh_spicy_accord_hierarchy.png"
-              alt="Fresh Spicy accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>14 - Fresh Spicy</h3>
-            <p class="accord-percentage">2.25%</p>
-            <p class="accord-count"><strong>1,544 fragrances</strong></p>
-            <p class="accord-description">
-              Crisp, invigorating spice adds energy and sharpness, balancing
-              freshness with a lively, aromatic edge.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/fresh_spicy_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 15 Green -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/green_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Green accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/green_accord_hierarchy.png"
-              alt="Green accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>15 - Green</h3>
-            <p class="accord-percentage">2.22%</p>
-            <p class="accord-count"><strong>1,522 fragrances</strong></p>
-            <p class="accord-description">
-              Leafy, grassy, and vegetal nuances capture the crisp character
-              of crushed leaves, stems, and fresh botanical growth.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/green_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 16 Oud -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/oud_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Oud accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/oud_accord_hierarchy.png"
-              alt="Oud accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>16 - Oud</h3>
-            <p class="accord-percentage">1.12%</p>
-            <p class="accord-count"><strong>765 fragrances</strong></p>
-            <p class="accord-description">
-              Deep, complex, and distinctive, oud-inspired accords can range
-              from smoky and woody to resinous, leathery, and sweet.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/oud_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 17 Leather -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/leather_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Leather accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/leather_accord_hierarchy.png"
-              alt="Leather accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>17 - Leather</h3>
-            <p class="accord-percentage">1.01%</p>
-            <p class="accord-count"><strong>689 fragrances</strong></p>
-            <p class="accord-description">
-              Bold and textured, leather accords can suggest supple suede,
-              smoky materials, polished leather, or dark, rugged facets.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/leather_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 18 Lavender -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/lavender_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Lavender accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/lavender_accord_hierarchy.png"
-              alt="Lavender accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>18 - Lavender</h3>
-            <p class="accord-percentage">0.56%</p>
-            <p class="accord-count"><strong>384 fragrances</strong></p>
-            <p class="accord-description">
-              Aromatic, herbal, and softly floral, lavender brings a
-              recognisable balance of freshness and calming warmth.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/lavender_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 19 Patchouli -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/patchouli_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Patchouli accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/patchouli_accord_hierarchy.png"
-              alt="Patchouli accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>19 - Patchouli</h3>
-            <p class="accord-percentage">0.55%</p>
-            <p class="accord-count"><strong>379 fragrances</strong></p>
-            <p class="accord-description">
-              Earthy, woody, and sometimes chocolate-like, patchouli adds
-              depth and a distinctive, grounding character.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/patchouli_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
-        <!-- 20 Aquatic -->
-        <article class="about-card accord-card">
-          <a
-            class="accord-preview-link"
-            href="visualizations/accord-hierarchies/aquatic_accord_hierarchy.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the full Aquatic accord hierarchy"
-          >
-            <img
-              class="accord-preview"
-              src="visualizations/accord-hierarchies/aquatic_accord_hierarchy.png"
-              alt="Aquatic accord hierarchy"
-              loading="lazy"
-            >
-          </a>
-          <div class="accord-card-content">
-            <h3>20 - Aquatic</h3>
-            <p class="accord-percentage">0.54%</p>
-            <p class="accord-count"><strong>368 fragrances</strong></p>
-            <p class="accord-description">
-              Fresh, airy, and water-inspired, aquatic accords evoke cool
-              sea breezes, watery transparency, and clean mineral nuances.
-            </p>
-            <a
-              class="accord-open-link"
-              href="visualizations/accord-hierarchies/aquatic_accord_hierarchy.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Open full hierarchy ↗</a>
-          </div>
-        </article>
-
+      <!-- Individual accord hierarchy cards -->
+      <div class="accord-grid" id="accord-grid">
+        <!-- Cards are generated from the data below. -->
       </div>
     </section>
 
+    <!-- Methodology -->
     <section class="approach-section container" id="approach">
       <div class="section-heading">
         <p class="eyebrow">BEHIND THE ANALYSIS</p>
+
         <h2>From raw data to fragrance insights</h2>
+
         <p>
           A structured approach to turning complex fragrance data into
           reliable, meaningful, and accessible insights.
@@ -792,19 +245,24 @@
       <div class="approach-grid">
         <article class="about-card">
           <h3>Data exploration &amp; cleaning</h3>
+
           <p>
             Understanding the source data, identifying inconsistencies,
             and establishing a reliable foundation for analysis.
           </p>
+
           <a
             href="https://beautyintelligencewitholga.blogspot.com/2026/10/exploring-and-cleaning-fragrantica.html"
             target="_blank"
             rel="noopener noreferrer"
-          >Read the data cleaning article ↗</a>
+          >
+            Read the data cleaning article ↗
+          </a>
         </article>
 
         <article class="about-card">
           <h3>Data quality</h3>
+
           <p>
             Standardising product and brand information while examining
             completeness, consistency, and potential data quality issues.
@@ -813,6 +271,7 @@
 
         <article class="about-card">
           <h3>Data engineering</h3>
+
           <p>
             Building a structured analytical workflow to organise data
             and support reproducible analysis.
@@ -821,6 +280,7 @@
 
         <article class="about-card">
           <h3>Visual analytics</h3>
+
           <p>
             Translating structured data into visual explorations that make
             fragrance families and their relationships easier to understand.
@@ -830,24 +290,266 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <p>Fragrance Intelligence with Olga</p>
+
       <p>
         Data meets the art of fragrance.
         <a
           href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
           target="_blank"
           rel="noopener noreferrer"
-        >Explore the project on GitHub ↗</a>
+        >
+          Explore the project on GitHub ↗
+        </a>
       </p>
     </div>
   </footer>
 
   <script>
+    /*
+     * Accord hierarchy PNGs.
+     * Each preview links directly to its full-size PNG.
+     * No individual HTML visualization files are required.
+     */
+    const accords = [
+      {
+        number: "01",
+        name: "Woody",
+        slug: "woody",
+        percentage: "14.18%",
+        count: "9,718",
+        description:
+          "Woods, earthy textures, and grounding notes create a versatile family ranging from dry and crisp to deep and warm."
+      },
+      {
+        number: "02",
+        name: "Citrus",
+        slug: "citrus",
+        percentage: "13.55%",
+        count: "9,280",
+        description:
+          "Bright, sparkling, and refreshing citrus accords bring zesty character, from juicy sweetness to crisp, bitter freshness."
+      },
+      {
+        number: "03",
+        name: "Fruity",
+        slug: "fruity",
+        percentage: "8.07%",
+        count: "5,530",
+        description:
+          "From juicy berries and crisp apples to tropical fruits, fruity accords add playful sweetness, freshness, and richness."
+      },
+      {
+        number: "04",
+        name: "White Floral",
+        slug: "white_floral",
+        percentage: "7.56%",
+        count: "5,181",
+        description:
+          "White flowers create expressive floral profiles, often blending creamy, luminous, indolic, and intensely sensual facets."
+      },
+      {
+        number: "05",
+        name: "Floral",
+        slug: "floral",
+        percentage: "7.17%",
+        count: "4,910",
+        description:
+          "A broad family inspired by flowers, ranging from delicate and airy bouquets to lush, sophisticated floral compositions."
+      },
+      {
+        number: "06",
+        name: "Aromatic",
+        slug: "aromatic",
+        percentage: "6.17%",
+        count: "4,229",
+        description:
+          "Herbal and aromatic facets evoke fresh herbs, fragrant leaves, and invigorating botanical compositions."
+      },
+      {
+        number: "07",
+        name: "Amber",
+        slug: "amber",
+        percentage: "6.00%",
+        count: "4,112",
+        description:
+          "Warm, resinous, and enveloping accords create depth and richness, often bringing a smooth, sensual character to a fragrance."
+      },
+      {
+        number: "08",
+        name: "Warm Spicy",
+        slug: "warm_spicy",
+        percentage: "5.31%",
+        count: "3,635",
+        description:
+          "Cinnamon-like warmth, rich spices, and piquant nuances lend fragrances an inviting, bold, and often sensual character."
+      },
+      {
+        number: "09",
+        name: "Sweet",
+        slug: "sweet",
+        percentage: "4.86%",
+        count: "3,327",
+        description:
+          "Gourmand-like sweetness and sugary facets range from soft and delicate to rich, decadent, and dessert-inspired."
+      },
+      {
+        number: "10",
+        name: "Vanilla",
+        slug: "vanilla",
+        percentage: "3.61%",
+        count: "2,476",
+        description:
+          "Creamy, comforting, and richly sweet, vanilla can soften a composition or become its central gourmand signature."
+      },
+      {
+        number: "11",
+        name: "Rose",
+        slug: "rose",
+        percentage: "3.16%",
+        count: "2,166",
+        description:
+          "Rose accords span fresh petals, dewy floral elegance, powdery softness, and deeper, richer interpretations."
+      },
+      {
+        number: "12",
+        name: "Powdery",
+        slug: "powdery",
+        percentage: "3.01%",
+        count: "2,060",
+        description:
+          "Soft, smooth, and often nostalgic, powdery accords evoke delicate cosmetics, velvety textures, and understated elegance."
+      },
+      {
+        number: "13",
+        name: "Musky",
+        slug: "musky",
+        percentage: "2.34%",
+        count: "1,606",
+        description:
+          "Clean, soft, or sensual, musky accords often lend a fragrance a skin-like quality and a smooth, lasting finish."
+      },
+      {
+        number: "14",
+        name: "Fresh Spicy",
+        slug: "fresh_spicy",
+        percentage: "2.25%",
+        count: "1,544",
+        description:
+          "Crisp, invigorating spice adds energy and sharpness, balancing freshness with a lively, aromatic edge."
+      },
+      {
+        number: "15",
+        name: "Green",
+        slug: "green",
+        percentage: "2.22%",
+        count: "1,522",
+        description:
+          "Leafy, grassy, and vegetal nuances capture the crisp character of crushed leaves, stems, and fresh botanical growth."
+      },
+      {
+        number: "16",
+        name: "Oud",
+        slug: "oud",
+        percentage: "1.12%",
+        count: "765",
+        description:
+          "Deep, complex, and distinctive, oud-inspired accords can range from smoky and woody to resinous, leathery, and sweet."
+      },
+      {
+        number: "17",
+        name: "Leather",
+        slug: "leather",
+        percentage: "1.01%",
+        count: "689",
+        description:
+          "Bold and textured, leather accords can suggest supple suede, smoky materials, polished leather, or dark, rugged facets."
+      },
+      {
+        number: "18",
+        name: "Lavender",
+        slug: "lavender",
+        percentage: "0.56%",
+        count: "384",
+        description:
+          "Aromatic, herbal, and softly floral, lavender brings a recognisable balance of freshness and calming warmth."
+      },
+      {
+        number: "19",
+        name: "Patchouli",
+        slug: "patchouli",
+        percentage: "0.55%",
+        count: "379",
+        description:
+          "Earthy, woody, and sometimes chocolate-like, patchouli adds depth and a distinctive, grounding character."
+      },
+      {
+        number: "20",
+        name: "Aquatic",
+        slug: "aquatic",
+        percentage: "0.54%",
+        count: "368",
+        description:
+          "Fresh, airy, and water-inspired, aquatic accords evoke cool sea breezes, watery transparency, and clean mineral nuances."
+      }
+    ];
+
+    const accordGrid = document.getElementById("accord-grid");
+
+    accords.forEach((accord) => {
+      const imagePath =
+        `visualizations/accord-hierarchies/${accord.slug}_accord_hierarchy.png`;
+
+      const card = document.createElement("article");
+      card.className = "about-card accord-card";
+
+      card.innerHTML = `
+        <a
+          class="accord-preview-link"
+          href="${imagePath}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open the full ${accord.name} accord hierarchy PNG"
+        >
+          <img
+            class="accord-preview"
+            src="${imagePath}"
+            alt="${accord.name} accord hierarchy visualization"
+            loading="lazy"
+          >
+        </a>
+
+        <div class="accord-card-content">
+          <h3>${accord.number} - ${accord.name}</h3>
+
+          <p class="accord-percentage">${accord.percentage}</p>
+
+          <p><strong>${accord.count} fragrances</strong></p>
+
+          <p>${accord.description}</p>
+
+          <p>
+            <a
+              href="${imagePath}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Open full hierarchy ↗</a>
+          </p>
+        </div>
+      `;
+
+      accordGrid.appendChild(card);
+    });
+  </script>
+
+  <!-- Theme toggle -->
+  <script>
     const themeToggle = document.getElementById("theme-toggle");
     const themeIcon = themeToggle.querySelector(".theme-toggle-icon");
-    const themeLabel = themeToggle.querySelector(".theme-toggle-label");
+    const themeLabel = document.getElementById("theme-toggle-label");
 
     function applyTheme(theme) {
       document.documentElement.dataset.theme = theme;
@@ -862,23 +564,22 @@
 
       themeIcon.textContent = isDark ? "☼" : "☾";
       themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+
+      const themeColor = document.querySelector(
+        'meta[name="theme-color"]'
+      );
+
+      if (themeColor) {
+        themeColor.setAttribute(
+          "content",
+          isDark ? "#21171f" : "#f8f5f2"
+        );
+      }
     }
-
-    let savedTheme = "dark";
-
-    try {
-      savedTheme = localStorage.getItem("fragrance-theme") || "dark";
-    } catch (error) {
-      // Use dark mode if browser storage is unavailable.
-    }
-
-    applyTheme(savedTheme === "light" ? "light" : "dark");
 
     themeToggle.addEventListener("click", () => {
-      const nextTheme =
-        document.documentElement.dataset.theme === "dark"
-          ? "light"
-          : "dark";
+      const currentTheme = document.documentElement.dataset.theme;
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
 
       applyTheme(nextTheme);
 
@@ -888,6 +589,8 @@
         // Theme switching still works for this page view.
       }
     });
+
+    applyTheme(document.documentElement.dataset.theme || "dark");
   </script>
 </body>
 </html>
