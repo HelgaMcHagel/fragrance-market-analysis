@@ -1,19 +1,20 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Fragrance Intelligence | Fragrance Data &amp; Accord Analysis</title>
+  <title>Fragrance Intelligence with Olga | Fragrance Data &amp; Accord Analysis</title>
 
   <meta
     name="description"
     content="Explore fragrance accords, olfactory families, and fragrance data through data analysis, data quality, and visual storytelling."
   >
 
-  <meta name="theme-color" content="#f8f5f2">
+  <meta name="theme-color" content="#21171f">
 
-  <meta property="og:title" content="Fragrance Intelligence">
+  <meta property="og:title" content="Fragrance Intelligence with Olga">
   <meta
     property="og:description"
     content="The art of fragrance, explored through data."
@@ -33,18 +34,49 @@
   >
 
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    // Apply the saved theme before the page renders.
+    (function () {
+      let theme = "dark";
+
+      try {
+        theme = localStorage.getItem("fragrance-theme") || "dark";
+      } catch (error) {
+        // Use dark mode if browser storage is unavailable.
+      }
+
+      document.documentElement.dataset.theme =
+        theme === "light" ? "light" : "dark";
+    })();
+  </script>
 </head>
-  
+
 <body>
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
-      <a class="logo" href="#top">Fragrance Intelligence</a>
+      <a class="logo" href="#top">Fragrance Intelligence with Olga</a>
+
       <div class="nav-links">
         <a href="#accord-analysis">Accord Analysis</a>
         <a href="#approach">My Approach</a>
-        <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
-           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a
+          href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
+          target="_blank"
+          rel="noopener noreferrer"
+        >GitHub ↗</a>
       </div>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+        aria-pressed="false"
+      >
+        <span class="theme-toggle-icon" aria-hidden="true">☼</span>
+        <span class="theme-toggle-label" id="theme-toggle-label">Light mode</span>
+      </button>
     </nav>
   </header>
 
@@ -56,18 +88,27 @@
         Exploring fragrance trends and olfactory families through data analysis,
         data quality practices, and visual storytelling.
       </p>
+
       <div class="hero-actions">
         <a class="button button-primary" href="#accord-analysis">
           Explore fragrance accords
         </a>
-        <a class="button button-secondary"
-           href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
-           target="_blank" rel="noopener noreferrer">
+
+        <a
+          class="button button-secondary"
+          href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           View project on GitHub ↗
         </a>
-        <a class="text-link"
-           href="https://beautyintelligencewitholga.blogspot.com/2026/10/exploring-and-cleaning-fragrantica.html"
-           target="_blank" rel="noopener noreferrer">
+
+        <a
+          class="text-link"
+          href="https://beautyintelligencewitholga.blogspot.com/2026/10/exploring-and-cleaning-fragrantica.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Read the data cleaning article ↗
         </a>
       </div>
@@ -447,8 +488,11 @@
             Understanding the source data, identifying inconsistencies,
             and establishing a reliable foundation for analysis.
           </p>
-          <a href="https://beautyintelligencewitholga.blogspot.com/2026/10/exploring-and-cleaning-fragrantica.html"
-             target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://beautyintelligencewitholga.blogspot.com/2026/10/exploring-and-cleaning-fragrantica.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Read the data cleaning article ↗
           </a>
         </article>
@@ -485,58 +529,60 @@
       <p>Fragrance Intelligence with Olga</p>
       <p>
         Data meets the art of fragrance.
-        <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/HelgaMcHagel/fragrance-market-analysis"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Explore the project on GitHub ↗
         </a>
       </p>
     </div>
   </footer>
 
-<script>
-  const themeToggle = document.getElementById("theme-toggle");
-  const themeIcon = themeToggle.querySelector(".theme-toggle-icon");
-  const themeLabel = themeToggle.querySelector(".theme-toggle-label");
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = themeToggle.querySelector(".theme-toggle-icon");
+    const themeLabel = document.getElementById("theme-toggle-label");
 
-  function applyTheme(theme) {
-    document.documentElement.dataset.theme = theme;
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
 
-    const isDark = theme === "dark";
+      const isDark = theme === "dark";
 
-    themeToggle.setAttribute("aria-pressed", String(!isDark));
-    themeToggle.setAttribute(
-      "aria-label",
-      isDark ? "Switch to light mode" : "Switch to dark mode"
-    );
+      themeToggle.setAttribute("aria-pressed", String(!isDark));
+      themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+      );
 
-    themeIcon.textContent = isDark ? "☼" : "☾";
-    themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
-  }
+      themeIcon.textContent = isDark ? "☼" : "☾";
+      themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
 
-  let savedTheme = "dark";
-
-  try {
-    savedTheme = localStorage.getItem("fragrance-theme") || "dark";
-  } catch (error) {
-    // Continue with dark mode if browser storage is unavailable.
-  }
-
-  applyTheme(savedTheme === "light" ? "light" : "dark");
-
-  themeToggle.addEventListener("click", () => {
-    const nextTheme =
-      document.documentElement.dataset.theme === "dark"
-        ? "light"
-        : "dark";
-
-    applyTheme(nextTheme);
-
-    try {
-      localStorage.setItem("fragrance-theme", nextTheme);
-    } catch (error) {
-      // Theme switching still works for this page view.
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) {
+        themeColor.setAttribute(
+          "content",
+          isDark ? "#21171f" : "#f8f5f2"
+        );
+      }
     }
-  });
-</script>
+
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.dataset.theme;
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+
+      applyTheme(nextTheme);
+
+      try {
+        localStorage.setItem("fragrance-theme", nextTheme);
+      } catch (error) {
+        // Theme switching still works for this page view.
+      }
+    });
+
+    applyTheme(document.documentElement.dataset.theme || "dark");
+  </script>
 </body>
 </html>
+```
