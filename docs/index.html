@@ -492,6 +492,51 @@
       </p>
     </div>
   </footer>
-</body>
 
+<script>
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = themeToggle.querySelector(".theme-toggle-icon");
+  const themeLabel = themeToggle.querySelector(".theme-toggle-label");
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+
+    const isDark = theme === "dark";
+
+    themeToggle.setAttribute("aria-pressed", String(!isDark));
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+
+    themeIcon.textContent = isDark ? "☼" : "☾";
+    themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+  }
+
+  let savedTheme = "dark";
+
+  try {
+    savedTheme = localStorage.getItem("fragrance-theme") || "dark";
+  } catch (error) {
+    // Continue with dark mode if browser storage is unavailable.
+  }
+
+  applyTheme(savedTheme === "light" ? "light" : "dark");
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "dark"
+        ? "light"
+        : "dark";
+
+    applyTheme(nextTheme);
+
+    try {
+      localStorage.setItem("fragrance-theme", nextTheme);
+    } catch (error) {
+      // Theme switching still works for this page view.
+    }
+  });
+</script>
+</body>
 </html>
