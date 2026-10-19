@@ -40,6 +40,22 @@
     .segment-table td { color: var(--text-muted); font-size: .9rem; }
     .segment-table td:first-child { color: var(--text); font-weight: 600; }
     .segment-table tr:last-child td { border-bottom: 0; }
+    .segment-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+    .segment-card { --segment-accent: var(--plum); min-width: 0; padding: 25px; border: 1px solid var(--border); border-top: 3px solid var(--segment-accent); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+    .segment-popular { --segment-accent: #d6b47a; }
+    .segment-niche { --segment-accent: #b9a0cc; }
+    .segment-underperformers { --segment-accent: #d4a1b2; }
+    .segment-low-visibility { --segment-accent: #98765b; }
+    .segment-card-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .segment-index { color: var(--segment-accent); font-size: .68rem; font-weight: 700; letter-spacing: .13em; }
+    .segment-count { padding: 5px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-muted); font-size: .75rem; white-space: nowrap; }
+    .segment-card h3 { margin: 0 0 12px; color: var(--text); font-size: clamp(1.35rem, 2vw, 1.7rem); line-height: 1.25; }
+    .segment-description { min-height: 3.6em; margin: 0 0 14px; color: var(--text-muted); font-size: .9rem; line-height: 1.75; }
+    .segment-threshold { margin: 0 0 18px; color: var(--text-muted); font-size: .78rem; line-height: 1.8; }
+    .segment-threshold strong { color: var(--text); font-weight: 600; }
+    .segment-threshold span { color: var(--segment-accent); padding: 0 3px; }
+    .accord-chip-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .accord-chip-list span { display: inline-flex; align-items: center; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--background); color: var(--text); font-size: .78rem; line-height: 1.4; }
     .threshold-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
     .threshold-card { padding: 22px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
     .threshold-card h3 { margin-bottom: 8px; font-size: 1.2rem; }
@@ -47,7 +63,7 @@
     .page-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
     .method-note { max-width: 850px; margin: 24px auto 0; color: var(--text-muted); font-size: .88rem; line-height: 1.8; text-align: center; }
     @media (max-width: 760px) {
-      .analysis-page-section .analysis-visual-grid, .metric-strip, .threshold-grid { grid-template-columns: minmax(0, 1fr); }
+      .analysis-page-section .analysis-visual-grid, .metric-strip, .threshold-grid, .segment-card-grid { grid-template-columns: minmax(0, 1fr); }
       .analysis-hero { padding-top: 54px; }
       .metric-card { padding: 16px; }
     }
@@ -161,18 +177,58 @@
         </p>
       </div>
 
-      <div class="segment-table-wrap">
-        <table class="segment-table">
-          <thead>
-            <tr><th>Segment</th><th>Accord groups</th><th>Rating position</th><th>Attention position</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Popular Performers</td><td>11</td><td>At or above 3.9774</td><td>At or above 211.79 average votes</td></tr>
-            <tr><td>High-Rated Niche Accords</td><td>8</td><td>At or above 3.9774</td><td>Below 211.79 average votes</td></tr>
-            <tr><td>Popular Underperformers</td><td>8</td><td>Below 3.9774</td><td>At or above 211.79 average votes</td></tr>
-            <tr><td>Low-Visibility, Lower-Rated Accords</td><td>11</td><td>Below 3.9774</td><td>Below 211.79 average votes</td></tr>
-          </tbody>
-        </table>
+      <div class="segment-card-grid">
+        <article class="segment-card segment-popular">
+          <div class="segment-card-header">
+            <span class="segment-index">01 / HIGHER ATTENTION</span>
+            <span class="segment-count">11 accords</span>
+          </div>
+          <h3>Popular Performers</h3>
+          <p class="segment-description">Above-benchmark mean ratings paired with higher-than-median average voting activity per fragrance.</p>
+          <p class="segment-threshold"><strong>Rating:</strong> ≥ 3.9774 <span>·</span> <strong>Mean votes:</strong> ≥ 211.79</p>
+          <div class="accord-chip-list" aria-label="Accords in Popular Performers">
+            <span>Almond</span><span>Caramel</span><span>Honey</span><span>Iris</span><span>Leather</span><span>Powdery</span><span>Soft spicy</span><span>Sweet</span><span>Tobacco</span><span>Vanilla</span><span>Warm spicy</span>
+          </div>
+        </article>
+
+        <article class="segment-card segment-niche">
+          <div class="segment-card-header">
+            <span class="segment-index">02 / LOWER ATTENTION</span>
+            <span class="segment-count">8 accords</span>
+          </div>
+          <h3>High-Rated Niche Accords</h3>
+          <p class="segment-description">Above-benchmark mean ratings despite lower-than-median average voting activity per fragrance.</p>
+          <p class="segment-threshold"><strong>Rating:</strong> ≥ 3.9774 <span>·</span> <strong>Mean votes:</strong> &lt; 211.79</p>
+          <div class="accord-chip-list" aria-label="Accords in High-Rated Niche Accords">
+            <span>Amber</span><span>Coconut</span><span>Lavender</span><span>Mossy</span><span>Oud</span><span>Tuberose</span><span>Woody</span><span>Yellow floral</span>
+          </div>
+        </article>
+
+        <article class="segment-card segment-underperformers">
+          <div class="segment-card-header">
+            <span class="segment-index">03 / HIGHER ATTENTION</span>
+            <span class="segment-count">8 accords</span>
+          </div>
+          <h3>Popular Underperformers</h3>
+          <p class="segment-description">Higher-than-median average voting activity, but mean ratings below the overall benchmark.</p>
+          <p class="segment-threshold"><strong>Rating:</strong> &lt; 3.9774 <span>·</span> <strong>Mean votes:</strong> ≥ 211.79</p>
+          <div class="accord-chip-list" aria-label="Accords in Popular Underperformers">
+            <span>Aromatic</span><span>Citrus</span><span>Floral</span><span>Fruity</span><span>Lactonic</span><span>Rose</span><span>Violet</span><span>White floral</span>
+          </div>
+        </article>
+
+        <article class="segment-card segment-low-visibility">
+          <div class="segment-card-header">
+            <span class="segment-index">04 / LOWER ATTENTION</span>
+            <span class="segment-count">11 accords</span>
+          </div>
+          <h3>Low-Visibility, Lower-Rated Accords</h3>
+          <p class="segment-description">Below-benchmark mean ratings combined with lower-than-median average voting activity per fragrance.</p>
+          <p class="segment-threshold"><strong>Rating:</strong> &lt; 3.9774 <span>·</span> <strong>Mean votes:</strong> &lt; 211.79</p>
+          <div class="accord-chip-list" aria-label="Accords in Low-Visibility, Lower-Rated Accords">
+            <span>Aldehydic</span><span>Aquatic</span><span>Earthy</span><span>Fresh</span><span>Fresh spicy</span><span>Green</span><span>Marine</span><span>Musky</span><span>Ozonic</span><span>Patchouli</span><span>Tropical</span>
+          </div>
+        </article>
       </div>
 
       <div class="threshold-grid">
