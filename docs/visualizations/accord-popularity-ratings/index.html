@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accord Popularity &amp; Ratings | Fragrance Intelligence with Olga</title>
+  <meta name="description" content="Explore how 38 dominant fragrance accord groups compare in average ratings, total votes, average votes per fragrance, and descriptive segments.">
+  <meta name="theme-color" content="#21171f">
+  <meta property="og:title" content="Accord Popularity &amp; Ratings | Fragrance Intelligence with Olga">
+  <meta property="og:description" content="A descriptive analysis of fragrance ratings and community voting activity across dominant accords.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=20261017-6">
+  <script>
+    (function () {
+      let theme = "dark";
+      try { theme = localStorage.getItem("fragrance-theme") || "dark"; } catch (error) {}
+      document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
+    })();
+  </script>
+  <style>
+    .analysis-hero { padding: 76px 0 52px; text-align: center; }
+    .analysis-hero h1 { max-width: 900px; margin: 0 auto 22px; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.04em; }
+    .analysis-hero .hero-description { max-width: 760px; margin: 0 auto 26px; }
+    .metric-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 34px auto 0; max-width: 850px; }
+    .metric-card { padding: 20px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+    .metric-card strong { display: block; color: var(--plum); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; font-variant-numeric: tabular-nums; }
+    .metric-card span { color: var(--text-muted); font-size: .84rem; }
+    .analysis-page-section { padding: 34px 0 64px; }
+    .analysis-page-section + .analysis-page-section { border-top: 1px solid var(--border); }
+    .analysis-page-section > .section-heading { margin-bottom: 32px; }
+    .analysis-page-section .analysis-visual-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .analysis-page-section .analysis-visual-card { background: var(--surface); }
+    .segment-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+    .segment-table { width: 100%; border-collapse: collapse; min-width: 620px; }
+    .segment-table th, .segment-table td { padding: 15px 18px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .segment-table th { color: var(--plum); font-size: .82rem; font-weight: 700; letter-spacing: .04em; }
+    .segment-table td { color: var(--text-muted); font-size: .9rem; }
+    .segment-table td:first-child { color: var(--text); font-weight: 600; }
+    .segment-table tr:last-child td { border-bottom: 0; }
+    .threshold-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+    .threshold-card { padding: 22px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+    .threshold-card h3 { margin-bottom: 8px; font-size: 1.2rem; }
+    .threshold-card p { margin: 0; color: var(--text-muted); font-size: .9rem; }
+    .page-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .method-note { max-width: 850px; margin: 24px auto 0; color: var(--text-muted); font-size: .88rem; line-height: 1.8; text-align: center; }
+    @media (max-width: 760px) {
+      .analysis-page-section .analysis-visual-grid, .metric-strip, .threshold-grid { grid-template-columns: minmax(0, 1fr); }
+      .analysis-hero { padding-top: 54px; }
+      .metric-card { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="../../index.html">Fragrance Intelligence with Olga</a>
+      <div class="nav-links">
+        <a href="../../index.html">Overview</a>
+        <a href="../../index.html#accord-analysis">Accord Hierarchies</a>
+        <a href="#visualizations">Ratings &amp; Popularity</a>
+        <a href="https://beautyintelligencewitholga.blogspot.com/2026/10/fragrance-ratings-analytics-exploring.html" target="_blank" rel="noopener noreferrer">Article ↗</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true">☼</span>
+        <span class="theme-toggle-label" id="theme-toggle-label">Light mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="analysis-hero container">
+      <p class="eyebrow">FRAGRANCE DATA · COMMUNITY RATINGS · VISUAL ANALYTICS</p>
+      <h1>Accord Popularity &amp; Ratings</h1>
+      <p class="hero-description">
+        How do dominant fragrance accords compare in average ratings and community voting activity?
+        This analysis explores three complementary measures and groups 38 dominant accords into
+        four descriptive segments.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#visualizations">Explore the visualizations</a>
+        <a class="button button-secondary" href="https://beautyintelligencewitholga.blogspot.com/2026/10/fragrance-ratings-analytics-exploring.html" target="_blank" rel="noopener noreferrer">Read the full article ↗</a>
+      </div>
+      <div class="metric-strip" aria-label="Analysis scope">
+        <div class="metric-card"><strong>62,623</strong><span>eligible fragrance records</span></div>
+        <div class="metric-card"><strong>38</strong><span>dominant-accord groups compared</span></div>
+        <div class="metric-card"><strong>4</strong><span>descriptive segments</span></div>
+      </div>
+    </section>
+
+    <section class="analysis-page-section container" id="visualizations">
+      <div class="section-heading">
+        <p class="eyebrow">THE VISUAL ANALYSIS</p>
+        <h2>Three measures, four perspectives</h2>
+        <p>
+          The same visualizations published in the article are presented here in analytical order.
+          Select any chart to open the full-size image.
+        </p>
+      </div>
+
+      <div class="analysis-visual-grid">
+        <article class="analysis-visual-card">
+          <div class="analysis-visual-copy">
+            <span class="analysis-visual-number">01</span>
+            <h4>Average rating by dominant accord</h4>
+            <p>Mean ratings compared with the overall mean of 3.9774. Oud has the highest mean rating in this analysis, at approximately 4.1244.</p>
+          </div>
+          <a class="analysis-chart-link" href="dominant-accord-vs-overall-mean.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size mean rating chart">
+            <div class="analysis-chart-frame"><img src="dominant-accord-vs-overall-mean.png" alt="Mean fragrance rating by dominant accord compared with the overall mean rating of approximately 3.9774." loading="lazy"></div>
+            <span class="visual-link">Open full-size visualization ↗</span>
+          </a>
+        </article>
+
+        <article class="analysis-visual-card">
+          <div class="analysis-visual-copy">
+            <span class="analysis-visual-number">02</span>
+            <h4>Total votes and mean rating</h4>
+            <p>Aggregate voting activity highlights groups such as citrus and woody, while also reflecting how many fragrances belong to each group.</p>
+          </div>
+          <a class="analysis-chart-link" href="accord-total-votes-vs-mean-rating.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size total votes chart">
+            <div class="analysis-chart-frame"><img src="accord-total-votes-vs-mean-rating.png" alt="Aggregate voting activity by dominant accord considered alongside mean rating." loading="lazy"></div>
+            <span class="visual-link">Open full-size visualization ↗</span>
+          </a>
+        </article>
+
+        <article class="analysis-visual-card">
+          <div class="analysis-visual-copy">
+            <span class="analysis-visual-number">03</span>
+            <h4>Average votes per fragrance</h4>
+            <p>This measure helps compare voting activity across accord groups with different numbers of fragrances. Iris has the highest average, at approximately 478.70 votes per fragrance.</p>
+          </div>
+          <a class="analysis-chart-link" href="accord-popularity-vs-mean-rating.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size average votes per fragrance chart">
+            <div class="analysis-chart-frame"><img src="accord-popularity-vs-mean-rating.png" alt="Average votes per fragrance compared with mean rating for the 38 dominant-accord groups." loading="lazy"></div>
+            <span class="visual-link">Open full-size visualization ↗</span>
+          </a>
+        </article>
+
+        <article class="analysis-visual-card">
+          <div class="analysis-visual-copy">
+            <span class="analysis-visual-number">04</span>
+            <h4>Four-segment classification</h4>
+            <p>The bubble visualization combines mean rating and average votes per fragrance to show the relative position of each accord group.</p>
+          </div>
+          <a class="analysis-chart-link" href="accord-mean-votes-rating-bubble.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size accord segment bubble chart">
+            <div class="analysis-chart-frame"><img src="accord-mean-votes-rating-bubble.png" alt="Dominant-accord groups segmented by average votes per fragrance and mean rating." loading="lazy"></div>
+            <span class="visual-link">Open full-size visualization ↗</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="analysis-page-section container">
+      <div class="section-heading">
+        <p class="eyebrow">SEGMENTATION</p>
+        <h2>Four descriptive segments</h2>
+        <p>
+          Each group is classified against two reference thresholds: the overall mean rating and
+          the median of the 38 group-level average-vote values.
+        </p>
+      </div>
+
+      <div class="segment-table-wrap">
+        <table class="segment-table">
+          <thead>
+            <tr><th>Segment</th><th>Accord groups</th><th>Rating position</th><th>Attention position</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Popular Performers</td><td>11</td><td>At or above 3.9774</td><td>At or above 211.79 average votes</td></tr>
+            <tr><td>High-Rated Niche Accords</td><td>8</td><td>At or above 3.9774</td><td>Below 211.79 average votes</td></tr>
+            <tr><td>Popular Underperformers</td><td>8</td><td>Below 3.9774</td><td>At or above 211.79 average votes</td></tr>
+            <tr><td>Low-Visibility, Lower-Rated Accords</td><td>11</td><td>Below 3.9774</td><td>Below 211.79 average votes</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="threshold-grid">
+        <article class="threshold-card">
+          <h3>Rating benchmark · 3.9774</h3>
+          <p>The overall mean rating across the eligible fragrance records. Accord groups are compared with this reference value.</p>
+        </article>
+        <article class="threshold-card">
+          <h3>Attention benchmark · 211.79</h3>
+          <p>The median of the 38 accord-level average-vote values. It is a dataset-specific threshold, not a universal definition of popularity.</p>
+        </article>
+      </div>
+
+      <p class="method-note">
+        These segments are descriptive, not absolute quality labels. Ratings and recorded votes do not measure sales or market share,
+        and this analysis does not establish causal relationships. Total votes are influenced by group size, which is why average votes
+        per fragrance is also examined.
+      </p>
+    </section>
+
+    <section class="analysis-page-section container">
+      <div class="section-heading">
+        <p class="eyebrow">KEY TAKEAWAYS</p>
+        <h2>Rating and attention tell different stories</h2>
+        <p>Several results illustrate why the metrics should be interpreted together rather than used interchangeably.</p>
+      </div>
+      <div class="approach-grid">
+        <article class="about-card">
+          <h3>Highest mean rating</h3>
+          <p class="accord-percentage">4.1244</p>
+          <p><strong>Oud</strong> has the highest mean rating, while averaging approximately 100.37 votes per fragrance—below the attention threshold.</p>
+        </article>
+        <article class="about-card">
+          <h3>Highest average attention</h3>
+          <p class="accord-percentage">478.70</p>
+          <p><strong>Iris</strong> has the highest average votes per fragrance, with a mean rating of approximately 4.0697.</p>
+        </article>
+      </div>
+      <div class="page-actions">
+        <a class="button button-primary" href="https://beautyintelligencewitholga.blogspot.com/2026/10/fragrance-ratings-analytics-exploring.html" target="_blank" rel="noopener noreferrer">Read the full analysis article ↗</a>
+        <a class="button button-secondary" href="https://github.com/HelgaMcHagel/fragrance-market-analysis" target="_blank" rel="noopener noreferrer">Explore source code on GitHub ↗</a>
+        <a class="text-link" href="../../index.html">Back to Fragrance Intelligence</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Fragrance Intelligence with Olga</p>
+      <p>Data meets the art of fragrance. <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis" target="_blank" rel="noopener noreferrer">Explore the project on GitHub ↗</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = themeToggle.querySelector(".theme-toggle-icon");
+    const themeLabel = document.getElementById("theme-toggle-label");
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const isDark = theme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(!isDark));
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      themeIcon.textContent = isDark ? "☼" : "☾";
+      themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) themeColor.setAttribute("content", isDark ? "#21171f" : "#f8f5f2");
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+      try { localStorage.setItem("fragrance-theme", nextTheme); } catch (error) {}
+    });
+
+    applyTheme(document.documentElement.dataset.theme || "dark");
+  </script>
+</body>
+</html>
