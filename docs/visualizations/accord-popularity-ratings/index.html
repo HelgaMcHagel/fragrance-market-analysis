@@ -33,6 +33,15 @@
     .analysis-page-section > .section-heading { margin-bottom: 32px; }
     .analysis-page-section .analysis-visual-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .analysis-page-section .analysis-visual-card { background: var(--surface); }
+    #visualizations .analysis-visual-card { display: flex; flex-direction: column; align-items: stretch; }
+    #visualizations .analysis-visual-copy { min-height: 184px; }
+    #visualizations .analysis-visual-copy h4 { min-height: 2.5em; }
+    #visualizations .analysis-visual-copy p { min-height: 5.2em; }
+    #visualizations .analysis-chart-link { display: flex; flex: 1; flex-direction: column; align-items: stretch; }
+    #visualizations .analysis-chart-frame { width: 100%; height: 320px; flex: 0 0 320px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    #visualizations .analysis-chart-frame img { display: block; width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; object-position: center; }
+    #visualizations .visual-link { margin-top: auto; padding-top: 12px; }
+    .segment-threshold .threshold-value { display: inline-block; padding: 0 2px; color: var(--text); font-size: 1.08rem; font-weight: 700; font-variant-numeric: tabular-nums; }
     .segment-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
     .segment-table { width: 100%; border-collapse: collapse; min-width: 620px; }
     .segment-table th, .segment-table td { padding: 15px 18px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
@@ -62,10 +71,14 @@
     .threshold-card p { margin: 0; color: var(--text-muted); font-size: .9rem; }
     .page-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
     .method-note { max-width: 850px; margin: 24px auto 0; color: var(--text-muted); font-size: .88rem; line-height: 1.8; text-align: center; }
+    .contact-links { overflow-wrap: anywhere; }
     @media (max-width: 760px) {
       .analysis-page-section .analysis-visual-grid, .metric-strip, .threshold-grid, .segment-card-grid { grid-template-columns: minmax(0, 1fr); }
       .analysis-hero { padding-top: 54px; }
       .metric-card { padding: 16px; }
+      #visualizations .analysis-visual-copy { min-height: 0; }
+      #visualizations .analysis-visual-copy h4, #visualizations .analysis-visual-copy p { min-height: 0; }
+      #visualizations .analysis-chart-frame { height: 280px; flex-basis: 280px; }
     }
   </style>
 </head>
@@ -185,7 +198,7 @@
           </div>
           <h3>Popular Performers</h3>
           <p class="segment-description">Above-benchmark mean ratings paired with higher-than-median average voting activity per fragrance.</p>
-          <p class="segment-threshold"><strong>Rating:</strong> ≥ 3.9774 <span>·</span> <strong>Mean votes:</strong> ≥ 211.79</p>
+          <p class="segment-threshold"><strong>Rating:</strong> <b class="threshold-value">≥ 3.9774</b> <span>·</span> <strong>Mean votes:</strong> <b class="threshold-value">≥ 211.79</b></p>
           <div class="accord-chip-list" aria-label="Accords in Popular Performers">
             <span>Almond</span><span>Caramel</span><span>Honey</span><span>Iris</span><span>Leather</span><span>Powdery</span><span>Soft spicy</span><span>Sweet</span><span>Tobacco</span><span>Vanilla</span><span>Warm spicy</span>
           </div>
@@ -198,7 +211,7 @@
           </div>
           <h3>High-Rated Niche Accords</h3>
           <p class="segment-description">Above-benchmark mean ratings despite lower-than-median average voting activity per fragrance.</p>
-          <p class="segment-threshold"><strong>Rating:</strong> ≥ 3.9774 <span>·</span> <strong>Mean votes:</strong> &lt; 211.79</p>
+          <p class="segment-threshold"><strong>Rating:</strong> <b class="threshold-value">≥ 3.9774</b> <span>·</span> <strong>Mean votes:</strong> <b class="threshold-value">&lt; 211.79</b></p>
           <div class="accord-chip-list" aria-label="Accords in High-Rated Niche Accords">
             <span>Amber</span><span>Coconut</span><span>Lavender</span><span>Mossy</span><span>Oud</span><span>Tuberose</span><span>Woody</span><span>Yellow floral</span>
           </div>
@@ -211,7 +224,7 @@
           </div>
           <h3>Popular Underperformers</h3>
           <p class="segment-description">Higher-than-median average voting activity, but mean ratings below the overall benchmark.</p>
-          <p class="segment-threshold"><strong>Rating:</strong> &lt; 3.9774 <span>·</span> <strong>Mean votes:</strong> ≥ 211.79</p>
+          <p class="segment-threshold"><strong>Rating:</strong> <b class="threshold-value">&lt; 3.9774</b> <span>·</span> <strong>Mean votes:</strong> <b class="threshold-value">≥ 211.79</b></p>
           <div class="accord-chip-list" aria-label="Accords in Popular Underperformers">
             <span>Aromatic</span><span>Citrus</span><span>Floral</span><span>Fruity</span><span>Lactonic</span><span>Rose</span><span>Violet</span><span>White floral</span>
           </div>
@@ -224,7 +237,7 @@
           </div>
           <h3>Low-Visibility, Lower-Rated Accords</h3>
           <p class="segment-description">Below-benchmark mean ratings combined with lower-than-median average voting activity per fragrance.</p>
-          <p class="segment-threshold"><strong>Rating:</strong> &lt; 3.9774 <span>·</span> <strong>Mean votes:</strong> &lt; 211.79</p>
+          <p class="segment-threshold"><strong>Rating:</strong> <b class="threshold-value">&lt; 3.9774</b> <span>·</span> <strong>Mean votes:</strong> <b class="threshold-value">&lt; 211.79</b></p>
           <div class="accord-chip-list" aria-label="Accords in Low-Visibility, Lower-Rated Accords">
             <span>Aldehydic</span><span>Aquatic</span><span>Earthy</span><span>Fresh</span><span>Fresh spicy</span><span>Green</span><span>Marine</span><span>Musky</span><span>Ozonic</span><span>Patchouli</span><span>Tropical</span>
           </div>
@@ -279,6 +292,7 @@
     <div class="container">
       <p>Fragrance Intelligence with Olga</p>
       <p>Data meets the art of fragrance. <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis" target="_blank" rel="noopener noreferrer">Explore the project on GitHub ↗</a></p>
+      <p class="contact-links"><a href="mailto:olga.beautyintelligence@proton.me">olga.beautyintelligence@proton.me</a><span aria-hidden="true"> · </span><a href="https://beautyintelligencewitholga.blogspot.com/" target="_blank" rel="noopener noreferrer">Beauty Intelligence with Olga blog ↗</a></p>
     </div>
   </footer>
 
