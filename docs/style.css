@@ -1057,3 +1057,43 @@ p {
     font-size: 3.2rem;
   }
 }
+
+
+/* Shared footer used across Fragrance Intelligence pages */
+.site-footer .footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.site-footer .footer-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow-wrap: anywhere;
+}
+.site-footer .contact-icon {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  color: var(--plum, #b9a0cc);
+  vertical-align: middle;
+}
+.site-footer .contact-links {
+  gap: 16px;
+}
+.site-footer .contact-separator {
+  color: var(--text-muted);
+}
+@media (max-width: 520px) {
+  .site-footer .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .site-footer .contact-separator {
+    display: none;
+  }
+}
