@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accord Pair &amp; Trio Segmentation | Fragrance Intelligence with Olga</title>
+  <meta name="description" content="Explore descriptive segmentation of fragrance accord pairs and triads by community attention and average ratings.">
+  <meta name="theme-color" content="#21171f">
+  <meta property="og:title" content="Accord Pair &amp; Trio Segmentation | Fragrance Intelligence with Olga">
+  <meta property="og:description" content="A descriptive segmentation of ordered fragrance accord pairs and triads.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=20261023-1">
+  <script>
+    (function () {
+      let theme = "dark";
+      try { theme = localStorage.getItem("fragrance-theme") || "dark"; } catch (error) {}
+      document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
+    })();
+  </script>
+  <style>
+    .segmentation-hero { padding: 76px 0 50px; text-align: center; }
+    .segmentation-hero h1 { max-width: 950px; margin: 0 auto 22px; font-size: clamp(2.5rem, 5vw, 4.4rem); letter-spacing: -.04em; }
+    .segmentation-hero .hero-description { max-width: 800px; margin: 0 auto 28px; }
+    .metric-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 880px; margin: 34px auto 0; }
+    .metric-card { padding: 20px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+    .metric-card strong { display: block; color: var(--plum); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; font-variant-numeric: tabular-nums; }
+    .metric-card span { color: var(--text-muted); font-size: .84rem; }
+    .analysis-section { padding: 34px 0 68px; }
+    .analysis-section + .analysis-section { border-top: 1px solid var(--border); }
+    .analysis-section .section-heading { margin-bottom: 30px; }
+    .chart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+    .chart-card { display: flex; flex-direction: column; min-width: 0; padding: 23px 20px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); text-align: center; }
+    .chart-card.featured { grid-column: 1 / -1; }
+    .chart-card h3 { margin: 0 0 10px; color: var(--text); font-size: 1.45rem; }
+    .chart-card p { max-width: 600px; margin: 0 auto 18px; color: var(--text-muted); font-size: .91rem; line-height: 1.75; }
+    .chart-card a { display: flex; flex: 1; flex-direction: column; align-items: center; }
+    .chart-frame { display: flex; width: 100%; min-height: 250px; align-items: center; justify-content: center; overflow: hidden; }
+    .chart-frame img { width: 100%; height: auto; max-height: 540px; object-fit: contain; object-position: center; }
+    .chart-card.featured .chart-frame img { max-height: 620px; }
+    .visual-link { display: inline-block; margin-top: 14px; font-size: .86rem; font-weight: 600; }
+    .segment-intro { max-width: 850px; margin: 0 auto 28px; color: var(--text-muted); text-align: center; line-height: 1.85; }
+    .segment-summary { overflow-x: auto; margin-top: 28px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+    .segment-summary table { width: 100%; min-width: 620px; border-collapse: collapse; }
+    .segment-summary th, .segment-summary td { padding: 14px 17px; border-bottom: 1px solid var(--border); text-align: left; }
+    .segment-summary th { color: var(--plum); font-size: .8rem; letter-spacing: .04em; }
+    .segment-summary td { color: var(--text-muted); font-size: .88rem; }
+    .segment-summary td:first-child { color: var(--text); font-weight: 600; }
+    .segment-summary tr:last-child td { border-bottom: 0; }
+    .method-note { max-width: 900px; margin: 28px auto 0; padding: 22px 24px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); color: var(--text-muted); font-size: .9rem; line-height: 1.85; }
+    .method-note strong { color: var(--text); }
+    .page-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    @media (max-width: 760px) {
+      .chart-grid, .metric-strip { grid-template-columns: minmax(0, 1fr); }
+      .chart-card.featured { grid-column: auto; }
+      .segmentation-hero { padding-top: 54px; }
+      .chart-frame { min-height: 180px; }
+      .chart-card { padding: 20px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="../../index.html">Fragrance Intelligence with Olga</a>
+      <div class="nav-links">
+        <a href="../../index.html">Overview</a>
+        <a href="../../index.html#accord-analysis">Accord Analysis</a>
+        <a href="../accord-popularity-ratings/">Ratings &amp; Popularity</a>
+        <a href="#pairs">Pair Segmentation</a>
+        <a href="#triads">Trio Segmentation</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true">☼</span>
+        <span class="theme-toggle-label" id="theme-toggle-label">Light mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="segmentation-hero container">
+      <p class="eyebrow">FRAGRANCE DATA · ORDERED ACCORD COMBINATIONS</p>
+      <h1>Accord Pair &amp; Trio Segmentation</h1>
+      <p class="hero-description">
+        A closer look at combinations of fragrance accords, grouped by community attention
+        and average ratings. Pair results come first, followed by triads, with each analysis
+        using its own reference medians.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#pairs">Explore pair segmentation</a>
+        <a class="button button-secondary" href="#triads">Explore trio segmentation</a>
+      </div>
+      <div class="metric-strip" aria-label="Analysis scope">
+        <div class="metric-card"><strong>147</strong><span>eligible ordered accord pairs</span></div>
+        <div class="metric-card"><strong>159</strong><span>eligible ordered accord triads</span></div>
+        <div class="metric-card"><strong>4 + 4</strong><span>descriptive segments, analyzed separately</span></div>
+      </div>
+    </section>
+
+    <section class="analysis-section container" id="pairs">
+      <div class="section-heading">
+        <p class="eyebrow">PART ONE · TWO-ACCORD COMBINATIONS</p>
+        <h2>Accord pair segmentation</h2>
+        <p>
+          Each ordered pair keeps the source order: the dominant accord followed by the
+          secondary accord. The four segments distinguish combinations with relatively
+          high or low average ratings and community attention.
+        </p>
+      </div>
+      <p class="segment-intro">
+        Pair analysis reference medians: <strong>3.975</strong> for mean rating and
+        <strong>220.09</strong> for mean votes per fragrance. The charts use these medians
+        to separate higher- and lower-rated combinations and higher- and lower-visibility combinations.
+      </p>
+
+      <div class="chart-grid">
+        <article class="chart-card featured">
+          <h3>Pair segmentation overview</h3>
+          <p>The full distribution of eligible ordered pairs across the four descriptive segments.</p>
+          <a href="../accord-popularity-ratings/accord-pair-segmentation.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size accord pair segmentation chart">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/accord-pair-segmentation.png" alt="Overall segmentation of ordered fragrance accord pairs into four groups based on mean votes and mean rating." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+
+        <article class="chart-card">
+          <h3>Popular performers</h3>
+          <p>Pairs above the reference medians for both average rating and average votes per fragrance.</p>
+          <a href="../accord-popularity-ratings/popular-performers.png" target="_blank" rel="noopener noreferrer">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/popular-performers.png" alt="Popular performer accord pairs." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+
+        <article class="chart-card">
+          <h3>High-rated niche pairs</h3>
+          <p>Pairs with above-median average ratings but below-median average votes per fragrance.</p>
+          <a href="../accord-popularity-ratings/high-rated-niche-pairs.png" target="_blank" rel="noopener noreferrer">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/high-rated-niche-pairs.png" alt="High-rated niche accord pairs." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+
+        <article class="chart-card">
+          <h3>Popular underperformers</h3>
+          <p>Pairs with above-median average votes per fragrance but below-median average ratings.</p>
+          <a href="../accord-popularity-ratings/popular-underperformers.png" target="_blank" rel="noopener noreferrer">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/popular-underperformers.png" alt="Popular underperforming accord pairs." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+
+        <article class="chart-card">
+          <h3>Low-visibility, lower-rated pairs</h3>
+          <p>Pairs below both reference medians for average rating and average votes per fragrance.</p>
+          <a href="../accord-popularity-ratings/low-visibility-lower-rated-pairs.png" target="_blank" rel="noopener noreferrer">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/low-visibility-lower-rated-pairs.png" alt="Low-visibility and lower-rated accord pairs." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+      </div>
+
+      <div class="segment-summary">
+        <table>
+          <thead><tr><th>Pair segment</th><th>Number of pairs</th><th>Median fragrance count</th><th>Average rating</th><th>Mean votes / fragrance</th></tr></thead>
+          <tbody>
+            <tr><td>Popular performers</td><td>43</td><td>200</td><td>4.041</td><td>318.80</td></tr>
+            <tr><td>High-rated niche pairs</td><td>31</td><td>201</td><td>4.029</td><td>162.94</td></tr>
+            <tr><td>Popular underperformers</td><td>31</td><td>269</td><td>3.934</td><td>281.48</td></tr>
+            <tr><td>Low-visibility, lower-rated pairs</td><td>42</td><td>183</td><td>3.924</td><td>176.20</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="analysis-section container" id="triads">
+      <div class="section-heading">
+        <p class="eyebrow">PART TWO · THREE-ACCORD COMBINATIONS</p>
+        <h2>Accord trio segmentation</h2>
+        <p>
+          The same four-part framework is applied to ordered combinations of three accords.
+          Triad results are shown after the complete pair analysis so each level can be explored on its own.
+        </p>
+      </div>
+      <p class="segment-intro">
+        Triad analysis reference medians: <strong>3.954</strong> for mean rating and
+        <strong>191.49</strong> for mean votes per fragrance. These thresholds are calculated
+        separately from the pair medians, so pair and triad segments should not be compared as if they shared one scale.
+      </p>
+
+      <div class="chart-grid">
+        <article class="chart-card featured">
+          <h3>Trio segmentation overview</h3>
+          <p>The full distribution of eligible ordered triads across the four descriptive segments.</p>
+          <a href="../accord-popularity-ratings/accord-triads-popularity-rating-segmentation-labelled.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size accord triad segmentation chart">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/accord-triads-popularity-rating-segmentation-labelled.png" alt="Overall segmentation of ordered fragrance accord triads into four groups based on mean votes and mean rating." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+
+        <article class="chart-card">
+          <h3>Popular performers</h3>
+          <p>Triads above the triad-specific medians for average rating and average votes per fragrance.</p>
+          <a href="../accord-popularity-ratings/popular-performers-triads.png" target="_blank" rel="noopener noreferrer">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/popular-performers-triads.png" alt="Popular performer accord triads." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+
+        <article class="chart-card">
+          <h3>High-rated niche triads</h3>
+          <p>Triads with above-median average ratings but below-median average votes per fragrance.</p>
+          <a href="../accord-popularity-ratings/high-rated-niche-triads-triads.png" target="_blank" rel="noopener noreferrer">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/high-rated-niche-triads-triads.png" alt="High-rated niche accord triads." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+
+        <article class="chart-card">
+          <h3>Popular underperformers</h3>
+          <p>Triads with above-median average votes per fragrance but below-median average ratings.</p>
+          <a href="../accord-popularity-ratings/popular-underperformers-triads.png" target="_blank" rel="noopener noreferrer">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/popular-underperformers-triads.png" alt="Popular underperforming accord triads." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+
+        <article class="chart-card">
+          <h3>Low-visibility, lower-rated triads</h3>
+          <p>Triads below both triad-specific reference medians for average rating and average votes per fragrance.</p>
+          <a href="../accord-popularity-ratings/low-visibility-lower-rated-triads-triads.png" target="_blank" rel="noopener noreferrer">
+            <div class="chart-frame"><img src="../accord-popularity-ratings/low-visibility-lower-rated-triads-triads.png" alt="Low-visibility and lower-rated accord triads." loading="lazy"></div>
+            <span class="visual-link">Open full-size chart ↗</span>
+          </a>
+        </article>
+      </div>
+
+      <div class="segment-summary">
+        <table>
+          <thead><tr><th>Triad segment</th><th>Number of triads</th></tr></thead>
+          <tbody>
+            <tr><td>Popular performers</td><td>39</td></tr>
+            <tr><td>High-rated niche triads</td><td>41</td></tr>
+            <tr><td>Popular underperformers</td><td>41</td></tr>
+            <tr><td>Low-visibility, lower-rated triads</td><td>38</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="analysis-section container" id="methodology">
+      <div class="section-heading">
+        <p class="eyebrow">HOW TO READ THE SEGMENTS</p>
+        <h2>Interpretation &amp; methodology</h2>
+        <p>These groups are descriptive tools for exploring the dataset, not claims about sales or causal drivers of fragrance ratings.</p>
+      </div>
+      <div class="method-note">
+        <p><strong>Community attention:</strong> mean votes per fragrance is used as a proxy for how much attention a combination receives in the source ratings data. It is not a measure of sales, market share, or commercial performance.</p>
+        <p><strong>Ordered combinations:</strong> pair and triad order follows the accord sequence in the source data. Reversing the order represents a different combination.</p>
+        <p><strong>Separate baselines:</strong> pairs and triads use their own median rating and mean-vote thresholds. A segment label describes a combination relative to its own analysis population.</p>
+        <p><strong>Descriptive results:</strong> a fragrance may contribute to more than one combination, and segment membership does not imply that one accord causes a higher or lower rating.</p>
+      </div>
+      <div class="page-actions">
+        <a class="button button-primary" href="https://beautyintelligencewitholga.blogspot.com/2026/10/fragrance-ratings-analytics-exploring.html" target="_blank" rel="noopener noreferrer">Read the related analysis article ↗</a>
+        <a class="button button-secondary" href="https://github.com/HelgaMcHagel/fragrance-market-analysis" target="_blank" rel="noopener noreferrer">View project on GitHub ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Fragrance Intelligence with Olga</p>
+      <p>Fragrance data · Community ratings · Visual analytics</p>
+      <p><a href="../../index.html">Return to overview</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeLabel = document.getElementById("theme-toggle-label");
+
+    function updateThemeToggle(theme) {
+      const lightMode = theme === "light";
+      themeToggle.setAttribute("aria-pressed", String(lightMode));
+      themeToggle.setAttribute("aria-label", lightMode ? "Switch to dark mode" : "Switch to light mode");
+      themeLabel.textContent = lightMode ? "Dark mode" : "Light mode";
+      themeToggle.querySelector(".theme-toggle-icon").textContent = lightMode ? "☾" : "☼";
+    }
+
+    updateThemeToggle(document.documentElement.dataset.theme || "dark");
+    themeToggle.addEventListener("click", function () {
+      const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+      const next = current === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem("fragrance-theme", next); } catch (error) {}
+      updateThemeToggle(next);
+    });
+  </script>
+</body>
+</html>
