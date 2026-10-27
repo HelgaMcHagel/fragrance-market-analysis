@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../style.css?v=20261023-1">
+  <link rel="stylesheet" href="../../style.css?v=20261027-2">
   <script>
     (function () {
       let theme = "dark";
@@ -65,13 +65,19 @@
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
       <a class="logo" href="../../index.html">Fragrance Intelligence with Olga</a>
-      <div class="nav-links">
-        <a href="../../index.html">Overview</a>
-        <a href="../../index.html#accord-analysis">Accord Analysis</a>
-        <a href="">Ratings &amp; Popularity</a>
-        <a href="#pairs">Pair Segmentation</a>
-        <a href="#triads">Trio Segmentation</a>
-      </div>
+      <div class="nav-links"><a href="../../index.html">Overview</a>
+        <a href="../../fragrance-accords.html">Fragrance Accords</a>
+        <a href="../../visualizations/accord-popularity-ratings/segmentation.html">Pair &amp; Trio Segmentation</a>
+        <a href="../../visualizations/accord-popularity-ratings/">Accord Popularity &amp; Ratings</a>
+        <details class="nav-dropdown">
+          <summary>Across Gender Categories <span aria-hidden="true">⌄</span></summary>
+          <div class="nav-dropdown-menu">
+            <a href="../../visualizations/accord-analysis-across-genders/">Overview</a>
+            <a href="../../visualizations/accord-analysis-across-genders/men/">Men’s Fragrances</a>
+            <a href="../../visualizations/accord-analysis-across-genders/women/">Women’s Fragrances</a>
+            <a href="../../visualizations/accord-analysis-across-genders/unisex/">Unisex Fragrances</a>
+          </div>
+        </details></div>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
         <span class="theme-toggle-icon" aria-hidden="true">☼</span>
         <span class="theme-toggle-label" id="theme-toggle-label">Light mode</span>
