@@ -66,6 +66,18 @@
       .chart-frame { min-height: 160px; }
       .segment-card h3, .segment-card .segment-description { min-height: 0; }
     }
+  
+    .analysis-jump-nav { display:flex; justify-content:center; flex-wrap:wrap; gap:9px; margin:20px auto 0; }
+    .analysis-jump-nav a { padding:8px 13px; border:1px solid var(--border); border-radius:999px; color:var(--text-muted); font-size:.86rem; }
+    .analysis-jump-nav a:hover { border-color:var(--plum); color:var(--text); }
+    .duo-bubble-card { margin-bottom:24px; }
+    .duo-bubble-card .chart-frame { max-width:1000px; margin:20px auto 0; }
+    .duo-bubble-card .chart-open { margin-left:0; }
+    .duo-segment-heading { margin-top:38px; }
+    .duo-segment-grid .chart-frame { align-items:flex-start; }
+    .duo-segment-grid .chart-frame img { width:100%; }
+    .analysis-section[id], .analysis-section .section-heading[id] { scroll-margin-top:90px; }
+    @media (max-width:760px) { .analysis-jump-nav { gap:7px; } .analysis-jump-nav a { font-size:.8rem; } }
   </style>
 </head>
 <body>
@@ -75,6 +87,9 @@
       <div class="nav-links">
         <a href="../">Accord Analysis</a>
         <a href="../../../index.html#accord-analysis">All Visualizations</a>
+        <a href="#dominant-accords">Dominant Accords</a>
+        <a href="#accord-duos">Accord Duos</a>
+        <a href="#data-reproducibility">Sources &amp; Method</a>
         <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
     </nav>
@@ -94,8 +109,14 @@
         <a class="button button-secondary" href="../">Back to accord analysis overview</a>
         <a class="button button-primary" href="https://github.com/HelgaMcHagel/fragrance-market-analysis/blob/main/notebooks/11_dominant_accord_gender_analysis.ipynb" target="_blank" rel="noopener noreferrer">View notebook ↗</a>
       </div>
+      <nav class="analysis-jump-nav" aria-label="Jump to analysis section">
+        <a href="#dominant-accords">01 · Dominant accords</a>
+        <a href="#dominant-segments">02 · Accord segments</a>
+        <a href="#accord-duos">03 · Accord duos</a>
+        <a href="#data-reproducibility">Sources &amp; methodology</a>
+      </nav>
     </section>
-    <section class="analysis-section">
+    <section class="analysis-section" id="dominant-accords">
       <div class="section-heading">
         <p class="eyebrow">01 · SEGMENTATION</p>
         <h2>Dominant-accord landscape</h2>
@@ -108,7 +129,7 @@
     <a class="chart-open" href="dominant-accord-segmentation-women.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
   </article></div>
     </section>
-    <section class="analysis-section">
+    <section class="analysis-section" id="dominant-segments">
       <div class="section-heading">
         <p class="eyebrow">02 · FOUR ACCORD SEGMENTS</p>
         <h2>Community attention by segment</h2>
@@ -144,11 +165,63 @@
   </article></div>
       <p class="method-note">Community attention is measured as average votes per fragrance and is used as a platform engagement proxy, not as a measure of sales or market share. Segment labels are descriptive and relative to this category’s median thresholds.</p>
     </section>
-    <section class="analysis-section">
+    
+    <section class="analysis-section" id="accord-duos">
+      <div class="section-heading">
+        <p class="eyebrow">03 · ACCORD DUOS</p>
+        <h2>Beyond individual accords: exploring accord duos</h2>
+        <p>These charts examine pairs of dominant accords together. The bubble chart shows duos represented by more than 10 fragrances, while the four segment charts provide closer views of leading duos in each rating-and-attention segment.</p>
+      </div>
+      <article class="chart-card duo-bubble-card">
+        <div class="duo-bubble-copy">
+          <p class="eyebrow">DUO LANDSCAPE</p>
+          <h3>Accord duos represented by more than 10 fragrances</h3>
+          <p>A broad view of the larger duo groups in the women category. Select the image to open the full-size chart.</p>
+        </div>
+        <div class="chart-frame"><a href="accord_duos_women_more_than_10_bubble.png" target="_blank" rel="noopener noreferrer"><img src="accord_duos_women_more_than_10_bubble.png" alt="Women fragrance accord duo bubble chart for duos represented by more than 10 fragrances" loading="lazy"></a></div>
+        <a class="chart-open" href="accord_duos_women_more_than_10_bubble.png" target="_blank" rel="noopener noreferrer">Open full-size bubble chart ↗</a>
+      </article>
+      <div class="section-heading duo-segment-heading">
+        <h3>Accord duos by performance segment</h3>
+        <p>Each chart shows the top 15 accord duos by votes and rating for its segment.</p>
+      </div>
+      <div class="segment-grid duo-segment-grid">
+        <article class="chart-card segment-card segment-popular">
+          <p class="eyebrow">DUO SEGMENT 01</p>
+          <h3>Popular Performers</h3>
+          <p class="segment-description">Accord duos in this segment, shown by community voting activity and rating.</p>
+          <div class="chart-frame"><a href="accord_duos_women_popular_performers_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer"><img src="accord_duos_women_popular_performers_top15_by_votes_rating.png" alt="Women fragrance accord duos: popular performers, top 15 by votes and rating" loading="lazy"></a></div>
+          <a class="chart-open" href="accord_duos_women_popular_performers_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+        </article>
+        <article class="chart-card segment-card segment-niche">
+          <p class="eyebrow">DUO SEGMENT 02</p>
+          <h3>High-Rated Niche Accords</h3>
+          <p class="segment-description">Accord duos in this segment, shown by community voting activity and rating.</p>
+          <div class="chart-frame"><a href="accord_duos_women_high_rated_niche_accords_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer"><img src="accord_duos_women_high_rated_niche_accords_top15_by_votes_rating.png" alt="Women fragrance accord duos: high-rated niche accords, top 15 by votes and rating" loading="lazy"></a></div>
+          <a class="chart-open" href="accord_duos_women_high_rated_niche_accords_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+        </article>
+        <article class="chart-card segment-card segment-underperformers">
+          <p class="eyebrow">DUO SEGMENT 03</p>
+          <h3>Popular Underperformers</h3>
+          <p class="segment-description">Accord duos in this segment, shown by community voting activity and rating.</p>
+          <div class="chart-frame"><a href="accord_duos_women_popular_underperformers_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer"><img src="accord_duos_women_popular_underperformers_top15_by_votes_rating.png" alt="Women fragrance accord duos: popular underperformers, top 15 by votes and rating" loading="lazy"></a></div>
+          <a class="chart-open" href="accord_duos_women_popular_underperformers_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+        </article>
+        <article class="chart-card segment-card segment-low-visibility">
+          <p class="eyebrow">DUO SEGMENT 04</p>
+          <h3>Low-Visibility, Lower-Rated Accords</h3>
+          <p class="segment-description">Accord duos in this segment, shown by community voting activity and rating.</p>
+          <div class="chart-frame"><a href="accord_duos_women_low_visibility_lower_rated_accords_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer"><img src="accord_duos_women_low_visibility_lower_rated_accords_top15_by_votes_rating.png" alt="Women fragrance accord duos: low-visibility, lower-rated accords, top 15 by votes and rating" loading="lazy"></a></div>
+          <a class="chart-open" href="accord_duos_women_low_visibility_lower_rated_accords_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+        </article>
+      </div>
+      <p class="method-note">Segment labels are relative to the category-specific median thresholds used in the analysis. Community votes are an engagement proxy, not a direct measure of sales or market share. The charts describe associations in the dataset and do not imply that combining accords causes a particular rating.</p>
+    </section>
+    <section class="analysis-section" id="data-reproducibility">
       <div class="section-heading">
         <p class="eyebrow">DATA &amp; REPRODUCIBILITY</p>
         <h2>Explore the source and analysis</h2>
-        <p>This page is part of an ongoing fragrance analytics project. Duo and trio accord analyses can be added to this structure as they become available.</p>
+        <p>This page brings together dominant-accord analysis and the new accord-duo analysis. The linked notebook, dataset, and source visualizations support reproducibility.</p>
       </div>
       <div class="page-actions">
         <a class="button button-primary" href="https://www.kaggle.com/datasets/olgagmiufana1/fragrantica-com-fragrance-dataset/data" target="_blank" rel="noopener noreferrer">Fragrantica dataset on Kaggle ↗</a>
