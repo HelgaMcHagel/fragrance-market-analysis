@@ -31,7 +31,18 @@
     .analysis-section { padding: 30px 0 58px; }
     .analysis-section + .analysis-section { border-top: 1px solid var(--border); }
     .analysis-section .section-heading { margin-bottom: 28px; }
-    .chart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+    .chart-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: stretch; }
+    .bubble-chart-card { width: 100%; }
+    .bubble-chart-card .chart-frame { min-height: 0; padding: 10px; }
+    .bubble-chart-card .chart-frame img { width: 100%; max-height: none; }
+    .segment-grid { align-items: stretch; }
+    .segment-card { display: flex; flex-direction: column; min-width: 0; }
+    .segment-card h3 { min-height: 2.4em; }
+    .segment-card .segment-description { min-height: 3.4em; }
+    .segment-card .chart-frame { height: 320px; min-height: 320px; padding: 8px; }
+    .segment-card .chart-frame a { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+    .segment-card .chart-frame img { width: 100%; height: 100%; object-fit: contain; }
+    .segment-card .chart-open { margin-top: auto; padding-top: 13px; }
     .chart-card { min-width: 0; padding: 22px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
     .chart-card h3 { margin-bottom: 9px; font-size: 1.35rem; }
     .chart-card p { color: var(--text-muted); font-size: .9rem; }
@@ -50,6 +61,7 @@
     .site-footer { margin-top: 30px; padding: 28px 0 38px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: .85rem; text-align: center; }
     @media (max-width: 760px) {
       .chart-grid, .segment-grid { grid-template-columns: minmax(0, 1fr); }
+      .segment-card .chart-frame { height: 280px; min-height: 280px; }
       .chart-card { padding: 16px; }
       .chart-frame { min-height: 160px; }
       .segment-card h3, .segment-card .segment-description { min-height: 0; }
@@ -89,7 +101,7 @@
         <h2>Dominant-accord landscape</h2>
         <p>The bubble chart shows how accord groups relate to the category-specific thresholds for community attention and mean rating.</p>
       </div>
-      <div class="chart-grid"><article class="chart-card">
+      <div class="chart-grid"><article class="chart-card bubble-chart-card">
     <h3>Accord segmentation</h3>
     <p>Bubble chart positioning dominant-accord groups by community attention and mean rating.</p>
     <div class="chart-frame"><a href="dominant-accord-segmentation-unisex.png" target="_blank" rel="noopener noreferrer"><img src="dominant-accord-segmentation-unisex.png" alt="Unisex Fragrances dominant accord segmentation bubble chart" loading="lazy"></a></div>
