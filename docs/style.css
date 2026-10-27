@@ -414,7 +414,7 @@ p {
 /* Accord analysis overview */
 
 .analysis-overview {
-  margin: 42px 0 54px;
+  margin: 42px auto 54px;
   padding: 34px 28px;
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -640,7 +640,7 @@ p {
 
 @media (max-width: 760px) {
   .analysis-overview {
-    margin: 30px 0 42px;
+    margin: 30px auto 42px;
     padding: 26px 16px;
   }
 
