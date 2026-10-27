@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Men’s Fragrances Accord Analysis | Fragrance Intelligence with Olga</title>
+  <meta name="description" content="Dominant accord segmentation, community ratings, and average votes per fragrance for men fragrances in the Fragrantica dataset.">
+  <meta name="theme-color" content="#21171f">
+  <meta property="og:title" content="Men’s Fragrances Accord Analysis | Fragrance Intelligence with Olga">
+  <meta property="og:description" content="Dominant accord segmentation, community ratings, and average votes per fragrance for men fragrances in the Fragrantica dataset.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../style.css?v=20261027-1">
+  <script>
+    (function () {
+      let theme = "dark";
+      try { theme = localStorage.getItem("fragrance-theme") || "dark"; } catch (error) {}
+      document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
+    })();
+  </script>
+  <style>
+    .accord-analysis-hero { padding: 68px 0 38px; text-align: center; }
+    .accord-analysis-hero h1 { max-width: 950px; margin: 0 auto 18px; font-size: clamp(2.4rem, 5vw, 4.2rem); letter-spacing: -.04em; }
+    .accord-analysis-hero .hero-description { max-width: 790px; margin: 0 auto 25px; color: var(--text-muted); }
+    .page-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+    .gender-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 26px auto 0; }
+    .gender-nav a { padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-muted); font-size: .86rem; }
+    .gender-nav a[aria-current="page"] { border-color: var(--plum); background: var(--surface); color: var(--text); }
+    .analysis-section { padding: 30px 0 58px; }
+    .analysis-section + .analysis-section { border-top: 1px solid var(--border); }
+    .analysis-section .section-heading { margin-bottom: 28px; }
+    .chart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+    .chart-card { min-width: 0; padding: 22px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+    .chart-card h3 { margin-bottom: 9px; font-size: 1.35rem; }
+    .chart-card p { color: var(--text-muted); font-size: .9rem; }
+    .chart-frame { display: flex; align-items: center; justify-content: center; min-height: 220px; margin-top: 14px; overflow: hidden; border: 1px solid var(--border); border-radius: 10px; background: var(--background); }
+    .chart-frame img { width: 100%; height: auto; object-fit: contain; }
+    .chart-open { display: inline-block; margin-top: 13px; font-size: .86rem; font-weight: 600; }
+    .segment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .segment-card { border-top: 3px solid var(--segment-accent, var(--plum)); }
+    .segment-card h3 { min-height: 2.4em; }
+    .segment-card .segment-description { min-height: 3.4em; }
+    .method-note { max-width: 900px; margin: 24px auto 0; color: var(--text-muted); font-size: .87rem; line-height: 1.8; }
+    .segment-popular { --segment-accent: #d6b47a; }
+    .segment-niche { --segment-accent: #b9a0cc; }
+    .segment-underperformers { --segment-accent: #d4a1b2; }
+    .segment-low-visibility { --segment-accent: #98765b; }
+    .site-footer { margin-top: 30px; padding: 28px 0 38px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: .85rem; text-align: center; }
+    @media (max-width: 760px) {
+      .chart-grid, .segment-grid { grid-template-columns: minmax(0, 1fr); }
+      .chart-card { padding: 16px; }
+      .chart-frame { min-height: 160px; }
+      .segment-card h3, .segment-card .segment-description { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="../../../index.html">Fragrance Intelligence with Olga</a>
+      <div class="nav-links">
+        <a href="../">Accord Analysis</a>
+        <a href="../../../index.html#accord-analysis">All Visualizations</a>
+        <a href="https://github.com/HelgaMcHagel/fragrance-market-analysis" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
 
+    <section class="accord-analysis-hero">
+      <p class="eyebrow">ACCORD ANALYSIS ACROSS GENDER CATEGORIES</p>
+      <h1>Men’s Fragrances</h1>
+      <p class="hero-description">Explore dominant-accord groups in the men category through community attention and mean ratings. The segmentation uses this category’s own median thresholds, so results should be interpreted within the category rather than as direct cross-category rankings.</p>
+      <div class="gender-nav">
+        <a href="../men/" aria-current="page">Men’s Fragrances</a>
+        <a href="../women/">Women’s Fragrances</a>
+        <a href="../unisex/">Unisex Fragrances</a>
+      </div>
+      <div class="page-actions">
+        <a class="button button-secondary" href="../">Back to accord analysis overview</a>
+        <a class="button button-primary" href="https://github.com/HelgaMcHagel/fragrance-market-analysis/blob/main/notebooks/11_dominant_accord_gender_analysis.ipynb" target="_blank" rel="noopener noreferrer">View notebook ↗</a>
+      </div>
+    </section>
+    <section class="analysis-section">
+      <div class="section-heading">
+        <p class="eyebrow">01 · SEGMENTATION</p>
+        <h2>Dominant-accord landscape</h2>
+        <p>The bubble chart shows how accord groups relate to the category-specific thresholds for community attention and mean rating.</p>
+      </div>
+      <div class="chart-grid"><article class="chart-card">
+    <h3>Accord segmentation</h3>
+    <p>Bubble chart positioning dominant-accord groups by community attention and mean rating.</p>
+    <div class="chart-frame"><a href="dominant-accord-segmentation-men.png" target="_blank" rel="noopener noreferrer"><img src="dominant-accord-segmentation-men.png" alt="Men’s Fragrances dominant accord segmentation bubble chart" loading="lazy"></a></div>
+    <a class="chart-open" href="dominant-accord-segmentation-men.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+  </article></div>
+    </section>
+    <section class="analysis-section">
+      <div class="section-heading">
+        <p class="eyebrow">02 · FOUR ACCORD SEGMENTS</p>
+        <h2>Community attention by segment</h2>
+        <p>Each bar chart provides a closer view of mean votes per fragrance for the accord groups in one segment.</p>
+      </div>
+      <div class="segment-grid"><article class="chart-card segment-card segment-popular">
+    <p class="eyebrow">SEGMENT 01</p>
+    <h3>Popular Performers</h3>
+    <p class="segment-description">Above-median community attention and above-median mean rating.</p>
+    <div class="chart-frame"><a href="dominant-accords-men-popular-performers-mean-votes-bar.png" target="_blank" rel="noopener noreferrer"><img src="dominant-accords-men-popular-performers-mean-votes-bar.png" alt="Men’s Fragrances: Popular Performers segment bar chart showing mean votes per fragrance" loading="lazy"></a></div>
+    <a class="chart-open" href="dominant-accords-men-popular-performers-mean-votes-bar.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+  </article>
+        <article class="chart-card segment-card segment-niche">
+    <p class="eyebrow">SEGMENT 02</p>
+    <h3>High-Rated Niche Accords</h3>
+    <p class="segment-description">Below-median community attention and above-median mean rating.</p>
+    <div class="chart-frame"><a href="dominant-accords-men-high-rated-niche-accords-mean-votes-bar.png" target="_blank" rel="noopener noreferrer"><img src="dominant-accords-men-high-rated-niche-accords-mean-votes-bar.png" alt="Men’s Fragrances: High-Rated Niche Accords segment bar chart showing mean votes per fragrance" loading="lazy"></a></div>
+    <a class="chart-open" href="dominant-accords-men-high-rated-niche-accords-mean-votes-bar.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+  </article>
+        <article class="chart-card segment-card segment-underperformers">
+    <p class="eyebrow">SEGMENT 03</p>
+    <h3>Popular Underperformers</h3>
+    <p class="segment-description">Above-median community attention and below-median mean rating.</p>
+    <div class="chart-frame"><a href="dominant-accords-men-popular-underperformers-mean-votes-bar.png" target="_blank" rel="noopener noreferrer"><img src="dominant-accords-men-popular-underperformers-mean-votes-bar.png" alt="Men’s Fragrances: Popular Underperformers segment bar chart showing mean votes per fragrance" loading="lazy"></a></div>
+    <a class="chart-open" href="dominant-accords-men-popular-underperformers-mean-votes-bar.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+  </article>
+        <article class="chart-card segment-card segment-low-visibility">
+    <p class="eyebrow">SEGMENT 04</p>
+    <h3>Low-Visibility, Lower-Rated Accords</h3>
+    <p class="segment-description">Below-median community attention and below-median mean rating.</p>
+    <div class="chart-frame"><a href="dominant-accords-men-low-visibility-lower-rated-accords-mean-votes-bar.png" target="_blank" rel="noopener noreferrer"><img src="dominant-accords-men-low-visibility-lower-rated-accords-mean-votes-bar.png" alt="Men’s Fragrances: Low-Visibility, Lower-Rated Accords segment bar chart showing mean votes per fragrance" loading="lazy"></a></div>
+    <a class="chart-open" href="dominant-accords-men-low-visibility-lower-rated-accords-mean-votes-bar.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+  </article></div>
+      <p class="method-note">Community attention is measured as average votes per fragrance and is used as a platform engagement proxy, not as a measure of sales or market share. Segment labels are descriptive and relative to this category’s median thresholds.</p>
+    </section>
+    <section class="analysis-section">
+      <div class="section-heading">
+        <p class="eyebrow">DATA &amp; REPRODUCIBILITY</p>
+        <h2>Explore the source and analysis</h2>
+        <p>This page is part of an ongoing fragrance analytics project. Duo and trio accord analyses can be added to this structure as they become available.</p>
+      </div>
+      <div class="page-actions">
+        <a class="button button-primary" href="https://www.kaggle.com/datasets/olgagmiufana1/fragrantica-com-fragrance-dataset/data" target="_blank" rel="noopener noreferrer">Fragrantica dataset on Kaggle ↗</a>
+        <a class="button button-secondary" href="https://github.com/HelgaMcHagel/fragrance-market-analysis/tree/main/docs/visualizations/accord-analysis-across-genders/men" target="_blank" rel="noopener noreferrer">View PNGs on GitHub ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer class="container site-footer">
+    <p>Fragrance Intelligence with Olga · Independent fragrance data analytics</p>
+    <p><a href="../">Accord Analysis Across Gender Categories</a> · <a href="../../../index.html">Home</a></p>
+  </footer>
+</body>
+</html>
