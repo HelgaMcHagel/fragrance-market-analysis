@@ -1123,3 +1123,21 @@ p {
   .nav-dropdown-menu { left:0; right:auto; top:calc(100% + 8px); }
 }
 @media (max-width:760px) { .topic-grid { grid-template-columns:minmax(0,1fr); } .topic-card { padding:24px; } }
+
+
+/* Center the accord-landscape introduction and distinguish gender destinations */
+.analysis-overview-heading.centered-landscape-heading {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.gender-nav-symbol {
+  display: inline-block;
+  width: 1.25em;
+  margin-right: .35em;
+  color: var(--mauve);
+  font-size: 1.08em;
+  font-weight: 700;
+  text-align: center;
+}
