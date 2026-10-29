@@ -74,6 +74,11 @@
     .duo-bubble-card .chart-frame { max-width:1000px; margin:20px auto 0; }
     .duo-bubble-card .chart-open { margin-left:0; }
     .duo-segment-heading { margin-top:38px; }
+    .triad-bubble-card { margin-bottom:24px; }
+    .triad-bubble-card .chart-frame { max-width:1000px; margin:20px auto 0; }
+    .triad-segment-heading { margin-top:38px; }
+    .triad-segment-grid .chart-frame { align-items:flex-start; }
+    .triad-segment-grid .chart-frame img { width:100%; }
     .duo-segment-grid .chart-frame { align-items:flex-start; }
     .duo-segment-grid .chart-frame img { width:100%; }
     .analysis-section[id], .analysis-section .section-heading[id] { scroll-margin-top:90px; }
@@ -118,6 +123,7 @@
         <a href="#dominant-accords">01 · Dominant accords</a>
         <a href="#dominant-segments">02 · Accord segments</a>
         <a href="#accord-duos">03 · Accord duos</a>
+        <a href="#accord-triads">04 · Accord triads</a>
         <a href="#data-reproducibility">Sources &amp; methodology</a>
       </nav>
     </section>
@@ -222,11 +228,68 @@
       </div>
       <p class="method-note">Segment labels are relative to the category-specific median thresholds used in the analysis. Community votes are an engagement proxy, not a direct measure of sales or market share. The charts describe associations in the dataset and do not imply that combining accords causes a particular rating.</p>
     </section>
+
+    <section class="analysis-section" id="accord-triads">
+      <div class="section-heading">
+        <p class="eyebrow">04 · ACCORD TRIADS</p>
+        <h2>Beyond accord duos: exploring accord triads</h2>
+        <p>These charts examine combinations of three dominant accords together. The bubble chart includes triads represented by at least 10 fragrances, while the four segment charts show the top 15 triads by voting activity and rating within each performance segment.</p>
+      </div>
+      <article class="chart-card triad-bubble-card">
+        <div class="triad-bubble-copy">
+          <p class="eyebrow">TRIAD LANDSCAPE</p>
+          <h3>Accord triads represented by at least 10 fragrances</h3>
+          <p>A broad view of the larger triad groups in the women category. Select the image to open the full-size chart.</p>
+        </div>
+        <div class="chart-frame"><a href="accord_triads_women_at_least_10_bubble.png" target="_blank" rel="noopener noreferrer"><img src="accord_triads_women_at_least_10_bubble.png" alt="Women’s fragrance accord triads bubble chart for triads represented by at least 10 fragrances" loading="lazy"></a></div>
+        <a class="chart-open" href="accord_triads_women_at_least_10_bubble.png" target="_blank" rel="noopener noreferrer">Open full-size bubble chart ↗</a>
+      </article>
+      <div class="section-heading triad-segment-heading">
+        <h3>Accord triads by performance segment</h3>
+        <p>Each chart shows the top 15 accord triads by votes and rating for its segment.</p>
+      </div>
+      <div class="segment-grid triad-segment-grid">
+
+        <article class="chart-card segment-card segment-popular">
+          <p class="eyebrow">TRIAD SEGMENT 01</p>
+          <h3>Popular Performers</h3>
+          <p class="segment-description">Triads with above-median community attention and above-median mean rating.</p>
+          <div class="chart-frame"><a href="accord_triads_women_popular_performers_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer"><img src="accord_triads_women_popular_performers_top15_by_votes_rating.png" alt="Women’s fragrance accord triads: popular performers, top 15 by votes and rating" loading="lazy"></a></div>
+          <a class="chart-open" href="accord_triads_women_popular_performers_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+        </article>
+
+        <article class="chart-card segment-card segment-niche">
+          <p class="eyebrow">TRIAD SEGMENT 02</p>
+          <h3>High-Rated Niche Accords</h3>
+          <p class="segment-description">Triads with below-median community attention and above-median mean rating.</p>
+          <div class="chart-frame"><a href="accord_triads_women_high_rated_niche_accords_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer"><img src="accord_triads_women_high_rated_niche_accords_top15_by_votes_rating.png" alt="Women’s fragrance accord triads: high-rated niche accords, top 15 by votes and rating" loading="lazy"></a></div>
+          <a class="chart-open" href="accord_triads_women_high_rated_niche_accords_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+        </article>
+
+        <article class="chart-card segment-card segment-underperformers">
+          <p class="eyebrow">TRIAD SEGMENT 03</p>
+          <h3>Popular Underperformers</h3>
+          <p class="segment-description">Triads with above-median community attention and below-median mean rating.</p>
+          <div class="chart-frame"><a href="accord_triads_women_popular_underperformers_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer"><img src="accord_triads_women_popular_underperformers_top15_by_votes_rating.png" alt="Women’s fragrance accord triads: popular underperformers, top 15 by votes and rating" loading="lazy"></a></div>
+          <a class="chart-open" href="accord_triads_women_popular_underperformers_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+        </article>
+
+        <article class="chart-card segment-card segment-low-visibility">
+          <p class="eyebrow">TRIAD SEGMENT 04</p>
+          <h3>Low-Visibility, Lower-Rated Accords</h3>
+          <p class="segment-description">Triads with below-median community attention and below-median mean rating.</p>
+          <div class="chart-frame"><a href="accord_triads_women_low_visibility_lower_rated_accords_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer"><img src="accord_triads_women_low_visibility_lower_rated_accords_top15_by_votes_rating.png" alt="Women’s fragrance accord triads: low-visibility, lower-rated accords, top 15 by votes and rating" loading="lazy"></a></div>
+          <a class="chart-open" href="accord_triads_women_low_visibility_lower_rated_accords_top15_by_votes_rating.png" target="_blank" rel="noopener noreferrer">Open full-size chart ↗</a>
+        </article>
+      </div>
+      <p class="method-note">Segment labels are relative to the category-specific median thresholds used in the analysis. Community votes are an engagement proxy, not a direct measure of sales or market share. The charts describe associations in the dataset and do not imply that combining accords causes a particular rating.</p>
+    </section>
+
     <section class="analysis-section" id="data-reproducibility">
       <div class="section-heading">
         <p class="eyebrow">DATA &amp; REPRODUCIBILITY</p>
         <h2>Explore the source and analysis</h2>
-        <p>This page brings together dominant-accord analysis and the new accord-duo analysis. The linked notebook, dataset, and source visualizations support reproducibility.</p>
+        <p>This page brings together dominant-accord, accord-duo, and accord-triad analyses. The linked notebook, dataset, and source visualizations support reproducibility.</p>
       </div>
       <div class="page-actions">
         <a class="button button-primary" href="https://www.kaggle.com/datasets/olgagmiufana1/fragrantica-com-fragrance-dataset/data" target="_blank" rel="noopener noreferrer">Fragrantica dataset on Kaggle ↗</a>
